@@ -1,0 +1,91 @@
+<html>
+
+<body>
+    <div id="app">
+        <el-drawer title="目录" :visible.sync="drawer" :direction="direction">
+            <div>
+                <div v-html="summaryHtml"></div>
+            </div>
+        </el-drawer>
+        <el-container>
+            <!-- <el-aside>
+                <div style="text-align: center;">
+                    <img style="border-radius: 30px;width: 60px;height: 60px;"
+                        src="https://avatars.githubusercontent.com/u/26274059?v=4"><br>
+                    <a href="https://github.com/dezhiShen">github.com</a>
+                </div>
+                <div ref="summary"></div>
+            </el-aside> -->
+            <el-header style="border-bottom:1px solid #dbdbdb">
+                <el-row>
+                    <el-col :span="4" style="margin-top: 15px;">
+                        <el-button size="small" type="primary" @click="showSummary()">目录</el-button>
+                    </el-col>
+                    <el-col :offset="16" :span="4" style="margin-top: 15px;">
+                        <a href="https://github.com/dezhiShen">
+                            <img style="border-radius: 15px;width: 30px;height: 30px;"
+                                src="https://avatars.githubusercontent.com/u/26274059?v=4"><br>
+                        </a>
+                    </el-col>
+                </el-row>
+            </el-header>
+            <el-main>
+                <el-card shadow="never">
+                    <div ref="content"></div>
+                </el-card>
+            </el-main>
+        </el-container>
+    </div>
+</body>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../dist/index.css">
+    <script src='../dist/index.js'></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            name: "app",
+            props: {},
+            computed: {},
+            data() {
+                return {
+                    drawer: false,
+                    direction: 'ltr',
+                    summaryHtml: ""
+                }
+            },
+            methods: {
+                showSummary: function () {
+                    this.drawer = true
+                },
+                renderSummary: function (url, html) {
+                    this.summaryHtml = html
+                },
+                renderContent: function (url, html) {
+                    this.$refs.content.innerHTML = html
+                    this.drawer = false
+                }
+
+            },
+            mounted: function () {
+                let sdk = new GithubBlogSdk({
+                    renderContent: (url, html, title) => {
+                        this.renderContent(url, html, title)
+                    },
+                    renderSummary: (url, html) => {
+                        this.renderSummary(url, html)
+                    }
+
+                })
+                sdk.initSdk()
+            }
+        })
+
+    </script>
+</head>
+
+</html>
