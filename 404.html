@@ -69,9 +69,11 @@
         //加载标题
         document.getElementsByTagName("title")[0].innerText = getPath().split("/").pop();//是路径中最后一个斜杠后面的文字
         //加载body中的标题
-        document.querySelector('passage_title').innerHTML = getPath().split("/").pop();;
+        document.getElementById('passage_title').innerHTML = getPath().split("/").pop();;
         //加载body中的文章
-        document.querySelector('passage_content').innerHTML = html;
+        document.getElementById('passage_content').innerHTML= html;
+        
+        //document.querySelector('body').innerHTML = html;
 
         //document.getElementById('passage').innerHTML= htmlpage;
 
