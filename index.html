@@ -1,4 +1,4 @@
-<!--以参数的方式加载文章，http的响应不会是404-->
+<!--若要以参数的方式加载文章，需使用?name=xxx，这样http的响应不会是404-->
 <head>
     <title>MarkDownBlog</title>
     <noscript><p><font size="5" face="arial" color="red">此网页需要Javascipt以运行<br>You should enable Javascript to work with this page.</font></p></noscript>
@@ -86,6 +86,9 @@
 
     
     document.getElementById('body_blog_title').innerHTML = blog_name;
+
+    document.getElementsByTagName("title")[0].innerText = blog_name;//加载Blog名称作为html标题
+
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
 
@@ -125,7 +128,7 @@
     }
     else{
         //如果没有参数直接显示index page
-        //加载标题
+        document.getElementById('passage_title').innerHTML = "";//首页不需要body中的文章标题，因此清空body中的标题
         let xhr = new XMLHttpRequest();
         var md_url = getDomain()+"passages/index.md";
         xhr.open("get", md_url, true);
@@ -139,10 +142,7 @@
             //reader.onload = function () {
             //  console.log('reader.result', reader.result)
             //}
-            //reader.readAsText(this.response);
-
-
-            
+            //reader.readAsText(this.response);            
             }
 
         };
