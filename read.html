@@ -124,8 +124,29 @@
         xhr.send();
     }
     else{
-        document.getElementsByTagName("title")[0].innerText = blog_name;//加载标题
-        document.getElementById('passage_title').innerHTML = "read.html请使用参数?name=文章的题目";//加载body中的标题
+        //如果没有参数直接显示index page
+        //加载标题
+        let xhr = new XMLHttpRequest();
+        var md_url = getDomain()+"passages/index.md";
+        xhr.open("get", md_url, true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+            // if (callback) {
+            // callback();
+            console.log(this.response)
+            LoadHTML(this.response)
+            //const reader = new FileReader()
+            //reader.onload = function () {
+            //  console.log('reader.result', reader.result)
+            //}
+            //reader.readAsText(this.response);
+
+
+            
+            }
+
+        };
+        xhr.send();
     }
     
    
