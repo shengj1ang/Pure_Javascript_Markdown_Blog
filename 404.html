@@ -6,8 +6,20 @@
 </head>
 <body>
 
-
-</body>
+    <div id="container">
+    
+    <div id="header" style="background-color:#FFA500;">
+    <h1 id="passage_title" style="margin-bottom:0;">Passage_Title</h1></div>
+    
+    <div id="passage_content" style="background-color:#EEEEEE">
+    Content</div>
+    
+    <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+    Copyright © example.com</div>
+    
+    </div>
+     
+    </body>
 <script>
     function getDomain(){
         var url = document.location.toString();
@@ -17,7 +29,19 @@
     }
     function getPath(){
         var url = document.location.toString();
-        var path = url.split("//")[1].split("/")[1];
+        var arrUrl = url.split("//");
+
+        var start = arrUrl[1].indexOf("/")+1;
+        var relUrl = arrUrl[1].substring(start);
+
+        if(relUrl.indexOf("?") != -1){
+            relUrl = relUrl.split("?")[0];
+            }
+        return relUrl;
+    }
+    function getTitle(){
+        var url = document.location.toString();
+        var path = url.split("//")[1].split("/")[-1];
         return(path)
     }
     function getQueryVariable(variable)
@@ -41,7 +65,13 @@
         //text      = '# hello, markdown!',
         text      = markdown_text,
         html      = htmlpage.makeHtml(text);
-        document.querySelector('body').innerHTML = html;
+
+        //加载标题
+        document.getElementsByTagName("title")[0].innerText = getPath().split("/").pop();//是路径中最后一个斜杠后面的文字
+        //加载body中的标题
+        document.querySelector('passage_title').innerHTML = getPath().split("/").pop();;
+        //加载body中的文章
+        document.querySelector('passage_content').innerHTML = html;
 
         //document.getElementById('passage').innerHTML= htmlpage;
 
