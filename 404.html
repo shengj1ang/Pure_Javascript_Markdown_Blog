@@ -7,7 +7,7 @@
 <body>
 	<center>
         <h1 id="body_blog_title">Blog_Title</h1>
-        <a href="/">首页</a>&#20;&#20;&#20;<a href="/list">文章列表</a>&#20;&#20;&#20;<a href="/about">关于</a>
+        <a href="/">首页</a>&#20;&#20;&#20;<a href="/List">文章列表</a>&#20;&#20;&#20;<a href="/about">关于</a>
     </center>
 
     <div id="container">
@@ -85,7 +85,7 @@
 
     var blog_name="Sheng's Blog"
     document.getElementById('body_blog_title').innerHTML = blog_name;
-    
+    document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
     var md_url = getDomain()+"passages/"+getPath()+".md";
     xhr.open("get", md_url, true);
@@ -103,7 +103,7 @@
 
 
           //加载标题
-          document.getElementsByTagName("title")[0].innerText = getPath().split("/").pop()+blog_name;//是路径中最后一个斜杠后面的文字
+          document.getElementsByTagName("title")[0].innerText = getPath().split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
           //加载body中的标题
           document.getElementById('passage_title').innerHTML = getPath().split("/").pop();
         }
