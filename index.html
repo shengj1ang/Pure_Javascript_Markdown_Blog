@@ -128,7 +128,7 @@
     }
     else{
         //如果没有参数直接显示index page
-        document.getElementById('passage_title').innerHTML = "<br>";//首页不需要body中的文章标题，因此清空body中的标题
+        document.getElementById('passage_title').innerHTML = "首页";//首页不需要body中的文章标题，因此清空body中的标题
         let xhr = new XMLHttpRequest();
         var md_url = getDomain()+"passages/index.md";
         xhr.open("get", md_url, true);
