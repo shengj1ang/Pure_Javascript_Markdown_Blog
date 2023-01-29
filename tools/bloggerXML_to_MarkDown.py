@@ -1,4 +1,9 @@
+#Refer: https://daniel.feldroy.com/posts/2022-02-blogger-to-markdown-script
 """
+!!!!!!
+Run 'pip install feedparser typer pyyaml
+!!!!!!
+
 How to use this script:
 1. Go to your blogger account settings
 2. Search for the "Back up content" link
@@ -32,7 +37,7 @@ try:
     import typer
     import yaml
 except ImportError:
-    print("Run 'pip install feedparser typer yaml'")
+    print("Run 'pip install feedparser typer pyyaml'")
 
 
 def main(
