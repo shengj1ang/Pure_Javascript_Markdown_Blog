@@ -15,6 +15,11 @@
         var domain = url.split("//")[1].split("/")[0];
         return(HttpOrHttps+"//"+domain+"/")
     }
+    function getPath(){
+        var url = document.location.toString();
+        var path = url.split("//")[1].split("/")[1];
+        return(path)
+    }
     function getQueryVariable(variable)
     {
         /*
@@ -45,7 +50,7 @@
         }
 
     let xhr = new XMLHttpRequest();
-    var md_url = getDomain()+"passages/"+getQueryVariable("passage_name")+".md";
+    var md_url = getDomain()+"passages/"+getPath()+".md";
     xhr.open("get", md_url, true);
     xhr.onload = function () {
         if (this.status == 200) {
