@@ -23,9 +23,11 @@
     <style>
         code{
             width:100%; 
-            white-space: nowrap; /*文本强制不换行*/
-            text-overflow: ellipsis; /*文本溢出显示省略号*/
-            overflow: hidden; /*溢出的部分隐藏*/
+            word-break:break-all;
+            word-wrap:break-word;
+            /*white-space: nowrap; 文本强制不换行*/
+            /*text-overflow: ellipsis; 文本溢出显示省略号*/
+            /*overflow: hidden; 溢出的部分隐藏*/
         }
     </style>
 </head>
@@ -45,8 +47,7 @@
     
     <div id="article_content" style="background-color:#EEEEEE;width:100%;word-break:break-all;word-wrap:break-word;">Content</div>
     
-    <h2 id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
-    Copyright © example.com</h2>
+    <h2 id="footer" style="background-color:#FFA500;clear:both;text-align:center;">Copyright © example.com</h2>
          
     </body>
 <script>
