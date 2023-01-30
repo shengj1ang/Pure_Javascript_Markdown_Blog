@@ -24,17 +24,17 @@
 <body>
 	<center>
         <h1 id="body_blog_title">Blog_Title</h1>
-        <a href="/">首页</a>&nbsp;&nbsp;&nbsp;<a href="/List">文章列表</a>&nbsp;&nbsp;&nbsp;<a href="/about">关于</a>
+        <a href="/">首页</a>&nbsp;&nbsp;&nbsp;<a href="/List">文章列表</a>&nbsp;&nbsp;&nbsp;<a href="/About">关于</a>
     </center>
 
     <div id="container">
     
     <div id="header" style="background-color:#FFA500;">
     
-        <h1 id="passage_title" style="margin-bottom:0;">Passage_Title</h1></div>
+        <h1 id="article_title" style="margin-bottom:0;">Article_Title</h1></div>
     
     </div>
-    <div id="passage_content" style="background-color:#EEEEEE">
+    <div id="article_content" style="background-color:#EEEEEE">
     Content</div>
     
     <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
@@ -89,11 +89,11 @@
 
         
         //加载body中的文章
-        document.getElementById('passage_content').innerHTML= html;
+        document.getElementById('article_content').innerHTML= html;
         
         //document.querySelector('body').innerHTML = html;
 
-        //document.getElementById('passage').innerHTML= htmlpage;
+        //document.getElementById('article').innerHTML= htmlpage;
 
         //var name = 'leo';
         //var htmlStr = `<div><span>${name}</span></div>`
@@ -103,7 +103,7 @@
     document.getElementById('body_blog_title').innerHTML = blog_name;
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
-    var md_url = getDomain()+"passages/"+getPath()+".md";
+    var md_url = getDomain()+"articles/"+getPath()+".md";
     xhr.open("get", md_url, true);
     xhr.onload = function () {
         if (this.status == 200) {
@@ -121,14 +121,14 @@
           //加载标题
           document.getElementsByTagName("title")[0].innerText = decodeURI(getPath().split("/").pop())+"_"+blog_name;//是路径中最后一个斜杠后面的文字
           //加载body中的标题
-          document.getElementById('passage_title').innerHTML = decodeURI(getPath().split("/").pop());
+          document.getElementById('article_title').innerHTML = decodeURI(getPath().split("/").pop());
         }
         else{
             //如果文章不存在
             document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
-            document.getElementById('passage_title').innerHTML = "404 找不到这篇文章";//加载body中的标题
+            document.getElementById('article_title').innerHTML = "404 找不到这篇文章";//加载body中的标题
             //加载body中的文章
-            document.getElementById('passage_content').innerHTML= "";
+            document.getElementById('article_content').innerHTML= "";
         
 
         }

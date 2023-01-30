@@ -26,17 +26,17 @@
 <body>
 	<center>
         <h1 id="body_blog_title">Blog_Title</h1>
-        <a href="/">首页</a>&nbsp;&nbsp;&nbsp;<a href="/List">文章列表</a>&nbsp;&nbsp;&nbsp;<a href="/about">关于</a>
+        <a href="/">首页</a>&nbsp;&nbsp;&nbsp;<a href="/List">文章列表</a>&nbsp;&nbsp;&nbsp;<a href="/About">关于</a>
     </center>
 
     <div id="container">
     
     <div id="header" style="background-color:#FFA500;">
     
-        <h1 id="passage_title" style="margin-bottom:0;">Passage_Title</h1></div>
+        <h1 id="article_title" style="margin-bottom:0;">Article_Title</h1></div>
     
     </div>
-    <div id="passage_content" style="background-color:#EEEEEE">
+    <div id="article_content" style="background-color:#EEEEEE">
     Content</div>
     
     <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
@@ -91,11 +91,11 @@
 
         
         //加载body中的文章
-        document.getElementById('passage_content').innerHTML= html;
+        document.getElementById('article_content').innerHTML= html;
         
         //document.querySelector('body').innerHTML = html;
 
-        //document.getElementById('passage').innerHTML= htmlpage;
+        //document.getElementById('article').innerHTML= htmlpage;
 
         //var name = 'leo';
         //var htmlStr = `<div><span>${name}</span></div>`
@@ -111,7 +111,7 @@
 
     let name=getQueryVariable("name");
     if (name){
-        var md_url = getDomain()+"passages/"+name+".md";
+        var md_url = getDomain()+"articles/"+name+".md";
         xhr.open("get", md_url, true);
         xhr.onload = function () {
             if (this.status == 200) {
@@ -129,14 +129,14 @@
             //加载标题
             document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("name"))+"_"+blog_name;//是路径中最后一个斜杠后面的文字
             //加载body中的标题
-            document.getElementById('passage_title').innerHTML = decodeURI(getQueryVariable("name"));
+            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("name"));
             }
             else{
                 //如果文章不存在
                 document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
-                document.getElementById('passage_title').innerHTML = "404 找不到这篇文章";//加载body中的标题
+                document.getElementById('article_title').innerHTML = "404 找不到这篇文章";//加载body中的标题
                 //加载body中的文章
-                document.getElementById('passage_content').innerHTML= "";
+                document.getElementById('article_content').innerHTML= "";
             
 
             }
@@ -145,9 +145,9 @@
     }
     else{
         //如果没有参数直接显示index page
-        document.getElementById('passage_title').innerHTML = "首页";//首页不需要body中的文章标题，因此清空body中的标题
+        document.getElementById('article_title').innerHTML = "首页";//首页不需要body中的文章标题，因此清空body中的标题
         let xhr = new XMLHttpRequest();
-        var md_url = getDomain()+"passages/index.md";
+        var md_url = getDomain()+"articles/index.md";
         xhr.open("get", md_url, true);
         xhr.onload = function () {
             if (this.status == 200) {
