@@ -71,7 +71,7 @@ function creatParticle(x,y){
 	ele.style.borderRadius = "5px";
 
 	//设置绝对位置
-	//ele.style.position = "absolute";
+	ele.style.position = "fixed";
 	ele.style.top = `${y}px`;
 	ele.style.left = `${x}px`;
 	//光标位于方块中央
