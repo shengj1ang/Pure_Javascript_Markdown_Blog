@@ -34,6 +34,9 @@ Promise.all([
 	loadExternalResource(live2d_path + "live2d.min.js", "js"),
 	loadExternalResource(live2d_path + "waifu-tips.js", "js")
 ]).then(() => {
-	live2d_settings['waifuEdgeSide']='right:30';
 	initWidget(live2d_path + "waifu-tips.json", "https://live2d.fghrsh.net/api");
 });
+
+try {
+	live2d_settings['waifuEdgeSide']='right:30';
+} catch(err) { console.log('[Error] JQuery is not defined.') }
