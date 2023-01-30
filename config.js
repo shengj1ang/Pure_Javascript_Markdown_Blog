@@ -39,4 +39,5 @@ Promise.all([
 
 try {
 	live2d_settings['waifuEdgeSide']='right:30';
+	initModel('https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/waifu-tips.json');
 } catch(err) { console.log('[Error] JQuery is not defined.') }
