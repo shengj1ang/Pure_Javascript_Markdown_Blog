@@ -2,6 +2,7 @@
     * [20230111: html+javascript+markdown实现前端渲染的Blog](./2023/html+javascript+markdown实现前端渲染的Blog)
     * [20230107: UNRAID虚拟机去虚化标识](./2023/UNRAID虚拟机去虚化标识)
     * [20221203: PHP为任意页面设访问密码，需要登陆才能访问](./2022/PHP为任意页面设访问密码，需要登陆才能访问)
+    * [20221102: Windows平台的包管理和Mac下的绿色软件下载](./2022/Windows平台的包管理和Mac下的绿色软件下载)
 
 
 
