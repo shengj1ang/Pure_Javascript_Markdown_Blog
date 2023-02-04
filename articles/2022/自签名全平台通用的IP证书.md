@@ -84,24 +84,30 @@ IP.1=你的IP
 ```
 
 然后用命令生成就行：
+```
 openssl req -config openssl.cnf -new -x509 -days 825 -out ca.crt
 openssl x509 -in ca.crt -text -noout
+```
 
 - 其它的问题不大。最后导入还是挺方便的。导入.CRT就行, IOS稍微麻烦点。
 
 在 Debian / Ubuntu / Alpine 系统中信任证书: 
 
+```
 cp *.crt /usr/local/share/ca-certificates/
 
 update-ca-certificates
 
+```
 
 
 - 关于nginx配置 
 
+```
 ssl_certificate /home/ssl/xxx/ca.crt;
 
 ssl_certificate_key /home/ssl/xxx/ca.key;
+```
 
 - 关于安全
 
@@ -113,5 +119,21 @@ ssl_certificate_key /home/ssl/xxx/ca.key;
 
 关于这个漏洞：
 
-[https://jireh.xyz/articles/2022/08/10/1660122191957.html](https://jireh.xyz/articles/2022/08/10/1660122191957.html)
+[https://jireh.xyz/articles/2022/08/10/1660122191957.html](https://jireh.xyz/articles/2022/08/10/1660122191957.html)<br>
 [https://github.com/carr0t2/nps-auth-bypass](https://github.com/carr0t2/nps-auth-bypass)
+
+- 在更多的系统上使用：
+[https://kompost.cn/posts/install-and-trust-self-signed-cert/](https://kompost.cn/posts/install-and-trust-self-signed-cert/)
+
+
+>操作系统	路径
+Debian/Ubuntu/Gentoo	/etc/ssl/certs/ca-certificates.crt
+Fedora/CentOS/RHEL 7.x	/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+Fedora/CentOS/RHEL 6.x	/etc/pki/tls/certs/ca-bundle.crt
+Alpine Linux <=3.11	/etc/ssl/cert.pem
+Alpine Linux >=3.12	/etc/ssl/certs/ca-certificates.crt (/etc/ssl/cert.pem 是符号链接)
+OpenSUSE/SLES	/var/lib/ca-certificates/ca-bundle.pem /etc/ssl/ca-bundle.pem
+
+- 更多的自签证书部署方案：
+[https://github.com/smallstep/certificates](https://github.com/smallstep/certificates)<br>
+[https://github.com/FiloSottile/mkcert](https://github.com/FiloSottile/mkcert)
