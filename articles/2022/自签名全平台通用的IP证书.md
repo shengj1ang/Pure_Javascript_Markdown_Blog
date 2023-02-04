@@ -1,4 +1,4 @@
-date: '2022-10-31T00:08:00.023+01:00'
+日期：20221031
 ---
 
  前言：由于阿里云的限制，所有带域名的，不管有没有SSL，都无法逃过被拦截，所以可以用IP+域名的方式访问。之前有介绍过IP+PORT转发到DENO和CLOUDFLARE。但是我拿来下文件看视频肯定是会被DENO发现的，所以还是直接访问阿里云为妙，这样延迟也能低点。再者，之前http都是明文传输，我可不想被管理员看见，毕竟我已经见识过他们的技术力了。
@@ -35,53 +35,32 @@ date: '2022-10-31T00:08:00.023+01:00'
 
     Contents of openssl.cnf (⚠️可以翻动):
 
-\[ req \]  
-default\_bits        = 2048  
-default\_keyfile     = ca.key  
-default\_md          = sha256  
-default\_days        = 825  
-encrypt\_key         = no  
-distinguished\_name  = subject  
-req\_extensions      = req\_ext  
-x509\_extensions     = x509\_ext  
-string\_mask         = utf8only  
-prompt              = no  
-  
-\[ subject \]  
-countryName                 = US  
-stateOrProvinceName         = Oklahoma  
-localityName                = Stillwater  
-organizationName            = My Company  
-OU                          = Engineering  
-  
-commonName              = 你的IPemailAddress            = me@home.com  
-  
-\# Section x509\_ext is used when generating a self-signed certificate. I.e., openssl req -x509 ...  
-  
-\[ x509\_ext \]  
-subjectKeyIdentifier      = hash  
-authorityKeyIdentifier    = keyid:always,issuer  
-  
-basicConstraints        = critical, CA:TRUE  
-keyUsage            = critical, digitalSignature, keyEncipherment, cRLSign, keyCertSign  
-subjectAltName          = IP:你的IPextendedKeyUsage = serverAuth  
-  
-  
-extendedKeyUsage    = TLS Web Server Authentication  
-  
-\[ req\_ext \]  
-subjectKeyIdentifier        = hash  
-basicConstraints        = CA:FALSE  
-keyUsage            = digitalSignature, keyEncipherment  
-subjectAltName          = IP:你的IP  
-  
-nsComment           = "OpenSSL Generated Certificate"  
-\[alt\_names}  
+```
+# Section x509_ext is used when generating a self-signed certificate. I.e., openssl req -x509 ...
+
+[ x509_ext ]
+subjectKeyIdentifier      = hash
+authorityKeyIdentifier    = keyid:always,issuer
+
+basicConstraints        = critical, CA:TRUE
+keyUsage            = critical, digitalSignature, keyEncipherment, cRLSign, keyCertSign
+subjectAltName          = IP:你的IP
+extendedKeyUsage = serverAuth
+
+
+extendedKeyUsage    = TLS Web Server Authentication
+
+[ req_ext ]
+subjectKeyIdentifier        = hash
+basicConstraints        = CA:FALSE
+keyUsage            = digitalSignature, keyEncipherment
+subjectAltName          = IP:你的IP
+
+nsComment           = "OpenSSL Generated Certificate"
+[alt_names}
 IP.1=你的IP
 
-    
-
-  
+```
 
     然后用命令生成就行：
 
