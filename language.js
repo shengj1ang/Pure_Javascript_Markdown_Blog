@@ -5,9 +5,9 @@ function LanguageAutoAlter(){
         case 'de':
         case 'de-de':
             console.log("Lang: Deutsch")
-            document.getElementById('button_1').innerHTML="Index";
-            document.getElementById('button_2').innerHTML="Artikel";
-            document.getElementById('button_3').innerHTML="um";
+            document.getElementById('button_1').title="Index";
+            document.getElementById('button_2').title="Artikel";
+            document.getElementById('button_3').title="um";
             var blog_language_index= "Index";
             var blog_language_404= "Artikel nicht gefunden";
             break;
@@ -20,9 +20,9 @@ function LanguageAutoAlter(){
         case 'en-nz':
         case 'en-za':
             console.log("Lang: English")
-            document.getElementById('button_1').innerHTML="Index";
-            document.getElementById('button_2').innerHTML="Articles";
-            document.getElementById('button_3').innerHTML="About";
+            document.getElementById('button_1').title="Index";
+            document.getElementById('button_2').title="Articles";
+            document.getElementById('button_3').title="About";
             var blog_language_index= "Index";
             var blog_language_404= "article not found";
             break;
@@ -37,9 +37,9 @@ function LanguageAutoAlter(){
         case 'es-ve':
         case 'es-co':
             console.log("Lang: Español");
-            document.getElementById('button_1').innerHTML="índice";
-            document.getElementById('button_2').innerHTML="artículo";
-            document.getElementById('button_3').innerHTML="acerca de";
+            document.getElementById('button_1').title="índice";
+            document.getElementById('button_2').title="artículo";
+            document.getElementById('button_3').title="acerca de";
             var blog_language_index= "índice";
             var blog_language_404= "artículo no encontrado";
             break;
@@ -50,9 +50,9 @@ function LanguageAutoAlter(){
         case 'fr-ch':
         case 'fr-lu':
             console.log("Lang: français");
-            document.getElementById('button_1').innerHTML="indice";
-            document.getElementById('button_2').innerHTML="article";
-            document.getElementById('button_3').innerHTML="à propos";
+            document.getElementById('button_1').title="indice";
+            document.getElementById('button_2').title="article";
+            document.getElementById('button_3').title="à propos";
             var blog_language_index= "indice";
             var blog_language_404= "article introuvable";
             break;
@@ -62,9 +62,9 @@ function LanguageAutoAlter(){
         case 'zh-hans-cn':
         case 'zh-hans-sg':
             console.log("Lang: 中文简体");
-            document.getElementById('button_1').innerHTML="首页";
-            document.getElementById('button_2').innerHTML="文章";
-            document.getElementById('button_3').innerHTML="关于";
+            document.getElementById('button_1').title="首页";
+            document.getElementById('button_2').title="文章";
+            document.getElementById('button_3').title="关于";
             var blog_language_index= "首页";
             var blog_language_404= "找不到这篇文章";
             break;
@@ -74,26 +74,26 @@ function LanguageAutoAlter(){
         case 'zh-hant-hk':
         case 'zh-hant-tw':
             console.log("Lang: 中文繁體");
-            document.getElementById('button_1').innerHTML="首頁";
-            document.getElementById('button_2').innerHTML="文章";
-            document.getElementById('button_3').innerHTML="關於";
+            document.getElementById('button_1').title="首頁";
+            document.getElementById('button_2').title="文章";
+            document.getElementById('button_3').title="關於";
             var blog_language_index= "首頁";
             var blog_language_404= "找不到這篇文章";
             break;
 
         case 'ja':
             console.log("Lang: 日本語");
-            document.getElementById('button_1').innerHTML="表紙";
-            document.getElementById('button_2').innerHTML="記事";
-            document.getElementById('button_3').innerHTML="だいたい";
+            document.getElementById('button_1').title="表紙";
+            document.getElementById('button_2').title="記事";
+            document.getElementById('button_3').title="だいたい";
             var blog_language_index= "表紙";
             var blog_language_404= "記事が見つかりません";
             break;
         default:
             console.log("Lang: default");
-            document.getElementById('button_1').innerHTML="Index";
-            document.getElementById('button_2').innerHTML="Articles";
-            document.getElementById('button_3').innerHTML="About";
+            document.getElementById('button_1').title="Index";
+            document.getElementById('button_2').title="Articles";
+            document.getElementById('button_3').title="About";
             var blog_language_index= "Index";
             var blog_language_404= "article not found";
             break;
