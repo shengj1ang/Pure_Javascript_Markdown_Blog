@@ -13,66 +13,61 @@
     <meta property="og:image" content="https://sheng.pages.dev/plugins/seo/facebookbanner.png"/>
     <title>Sheng's Blog</title>
     <link rel="icon"  href="/favicon.ico" sizes="23x23" type="image/x-icon" >
-    <noscript><p><font size="5" face="arial" color="red">此网页需要Javascipt以运行<br>You should enable Javascript to work with this page.</font></p></noscript>
+    <noscript><p><font size="5" face="arial" color="red">You should enable Javascript to work with this page.<br>此网页需要Javascipt以运行</font></p></noscript>
     <script src="/showdown.min.js"></script>	
     <script type="text/javascript" charset="UTF-8" src="/config.js"></script>	
+    <script type="text/javascript" charset="UTF-8" src="/language.js"></script>
     <style>
        body{
             background-color: #a2e1d4;
             /*border:1px solid black;width:100%;overflow-y:scroll;overflow-x:scroll;*/
-        }
-        
+        }   
         img{ width:auto; height:auto; max-width:100%; max-height:100%;}
         code {
             font-family: Consolas,"courier new";
-            color: crimson;
-            
+            color: crimson; 
             background-color: #DCDCDC;
-            
             white-space: pre-wrap;      /* CSS3 */   
             white-space: -moz-pre-wrap; /* Firefox */    
             white-space: -pre-wrap;     /* Opera <7 */   
             white-space: -o-pre-wrap;   /* Opera 7 */    
             word-wrap: break-word;      /* IE */
-
             }
-
-            .myButton {
-                box-shadow: 0px 10px 14px -7px #276873;
-                background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-                background-color:#599bb3;
-                border-radius:8px;
-                display:inline-block;
-                cursor:pointer;
-                color:#ffffff;
-                font-family:Arial;
-                font-size:20px;
-                font-weight:bold;
-                padding:13px 32px;
-                text-decoration:none;
-                text-shadow:0px 1px 0px #3d768a;
-            }
-            .myButton:hover {
-                background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-                background-color:#408c99;
-            }
-            .myButton:active {
-                position:relative;
-                top:1px;
-            }
-
+        .myButton {
+            box-shadow: 0px 10px 14px -7px #276873;
+            background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+            background-color:#599bb3;
+            border-radius:8px;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:20px;
+            font-weight:bold;
+            padding:13px 32px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #3d768a;
+        }
+        .myButton:hover {
+            background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+            background-color:#408c99;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
     </style>
 </head>
 <body>
 	<center>
         <h1 id="body_blog_title"><strong>Blog_Title</strong></h1>
-        <a class="myButton" href="/">首页</a>&nbsp;&nbsp;&nbsp;<a class="myButton" href="/List">文章列表</a>&nbsp;&nbsp;&nbsp;<a class="myButton" href="/About">关于</a>
+        <a class="myButton" id="button_1" href="/">button_1</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_2"href="/List">button_2</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_3" href="/About">button_3</a>
     </center>
     <div id="container">
         <div id="header" style="background-color:#acf6ef;border-radius:25px;">
             <h1 id="article_title" style="margin-bottom:0;border-radius:25px;text-align:center;">Article_Title</h1>
         </div>
-        <div id="article_content" style="background-color:#cbf5fb;width:100%;word-break:break-all;word-wrap:break-word;border-radius:5px;">此网页需要Javascipt以运行<br>You should enable Javascript to work with this page.</div>
+        <div id="article_content" style="background-color:#cbf5fb;width:100%;word-break:break-all;word-wrap:break-word;border-radius:5px;">You should enable Javascript to work with this page.<br>此网页需要Javascipt以运行</div>
         <div style="background-color:#acf6ef;clear:both;text-align:center;border-radius:25px;"><h2 id="footer">Copyright © example.com</h2></div>
     </div>     
 </body>
@@ -134,8 +129,8 @@
 
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
-
-    let name=getQueryVariable("name");
+    
+    let name=getQueryVariable("name");//是一种以参数的方式显示文章的方法，默认不使用这种方法。
     if (name){
         var md_url = getDomain()+"articles/"+name+".md";
         xhr.open("get", md_url, true);
@@ -171,7 +166,7 @@
     }
     else{
         //如果没有参数直接显示index page
-        document.getElementById('article_title').innerHTML = "首页";//首页不需要body中的文章标题，因此清空body中的标题
+        document.getElementById('article_title').innerHTML = blog_language_index;//首页不需要body中的文章标题，因此清空body中的标题
         let xhr = new XMLHttpRequest();
         var md_url = getDomain()+"articles/index.md";
         xhr.open("get", md_url, true);
@@ -194,6 +189,5 @@
     
    
 </script>
-<script type="text/javascript" charset="UTF-8" src="/language.js"></script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
 </html>
