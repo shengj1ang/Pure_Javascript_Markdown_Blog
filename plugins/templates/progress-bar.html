@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面浏览进度条</title>
+    <style>
+        body {
+            height: 100%;
+        }
+        .read_pro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #DDD;
+        }
+        .read_pro_inner {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: 100%;
+            background-color: #0089f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="read_pro">
+        <div class="read_pro_inner" id="read_pro_inner"></div>
+    </div>
+    <div class="page-con">
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+         ......这里是长内容......
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+         ......这里是长内容......
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+         ......这里是长内容......
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+         ......这里是长内容......
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+         ......这里是长内容......
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+        <p>111111111111111111</p>
+    </div>
+</body>
+<script>
+document.addEventListener('scroll', function(e) {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
+    var scrollHeight = document.documentElement.scrollHeight // 文档总高度
+    var clientHeight = document.documentElement.clientHeight // 窗口可视高度
+    document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
+})
+</script>
+</html>
