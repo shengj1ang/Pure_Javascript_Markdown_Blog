@@ -167,9 +167,9 @@
 
 
             //加载标题
-            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("name"))+"_"+blog_name;//是路径中最后一个斜杠后面的文字
+            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("name")).split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
             //加载body中的标题
-            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("name"));
+            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("name")).split("/").pop();
             }
             else{
                 //如果文章不存在
