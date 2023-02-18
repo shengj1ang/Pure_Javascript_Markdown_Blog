@@ -9,6 +9,6 @@ Blogger虽然挺好用，但是我现在打算用纯HTML+Javascript+Markdown来�
 20230129: 基本功能已经搞定。
 
 
-若要以参数的方式加载文章，需使用?name=xxx，这样http的响应不会是404
+若要以参数的方式加载文章，需使用?p=xxx，这样http的响应不会是404
 
 https://blog.csdn.net/investchina/article/details/21185065
