@@ -182,13 +182,6 @@
             }
         };
         xhr.send();
-
-        document.addEventListener('scroll', function(e) {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
-            var scrollHeight = document.documentElement.scrollHeight // 文档总高度
-            var clientHeight = document.documentElement.clientHeight // 窗口可视高度
-            document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
-        })
     }
     else{
         //如果没有参数直接显示index page
@@ -224,6 +217,14 @@
         'google_translate_element'
         );
     }
+
+    document.addEventListener('scroll', function(e) {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
+        var scrollHeight = document.documentElement.scrollHeight // 文档总高度
+        var clientHeight = document.documentElement.clientHeight // 窗口可视高度
+        document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
+    })
+    
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
 <!--Google Translate
