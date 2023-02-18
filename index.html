@@ -149,7 +149,7 @@
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
     
-    let name=getQueryVariable("name");//是一种以参数的方式显示文章的方法，默认不使用这种方法。
+    let name=getQueryVariable("p");//是一种以参数的方式显示文章的方法，默认不使用这种方法。使用?p参数, 参考WordPress。
     if (name){
         var md_url = getDomain()+"articles/"+name+".md";
         xhr.open("get", md_url, true);
@@ -167,9 +167,9 @@
 
 
             //加载标题
-            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("name")).split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
+            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("p")).split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
             //加载body中的标题
-            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("name")).split("/").pop();
+            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("p")).split("/").pop();
             }
             else{
                 //如果文章不存在
