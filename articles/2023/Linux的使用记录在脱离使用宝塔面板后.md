@@ -2,19 +2,19 @@ Linux的使用记录在脱离使用宝塔面板后
 ---
 由于写起来还是挺麻烦的，不是所有的记录我都会写在这。
 
-1. lnmp环境：
+1.lnmp环境：
 我主要是要nginx来做转发，服务后端在更强大配置的机器上。PHP有时可能需要。数据库在性能低的机器上只能sqlite，所以不用考虑。
 [https://www.lnmp.org](https://www.lnmp.org)
 由于lnmp.org已经介绍得十分完备了，可以直接看他们的内容，和用他们的无人安装脚本。
 使用的时候的lnmp命令用一遍就记住了。之后的配置大多都是手动配置。
 我常用到`whereis nginx`来找到nginx配置文件的目录。大概是xxx/conf/vhost/*.conf
 
-2. 安全防护（多少是要点的， 即使套了CDN，还是有很多潜在风险）：
+2.安全防护（多少是要点的， 即使套了CDN，还是有很多潜在风险）：
 - ufw的使用 ufw的命令十分简单。
 - [这里有个基于web的ufw控制](https://github.com/dvorpahl/ufw2web)，我还没测试过。
 - httpguard，[https://github.com/centos-bz/HttpGuard](https://github.com/centos-bz/HttpGuard)，效果还是有的，但是已经不再开发了。
  Lua 开启防御代码
- 
+- [D盾防火墙](https://www.d99net.net/) 
 ```
 lua_package_path “/usr/local/nginx/conf/waf/?.lua”;
 lua_shared_dict limit 10m;
@@ -31,16 +31,16 @@ access_by_lua_file /usr/local/nginx/conf/waf/waf.lua;
 
 - [https://www.zoomeye.org/](https://www.zoomeye.org/) 这个十分可怕。
 - 
-3. 测试工具（我不大喜欢测试性能，因为我使用的时候能感受出来）：
+3.测试工具（我不大喜欢测试性能，因为我使用的时候能感受出来）：
 - [Smartping（golang）](http://smartping.org/)， 我知道smokeping，但是我不喜欢那个语音，不能编译出来，在性能低的机器上部署它的环境是十分困难的。Smartping就非常棒。
 - 网页评分，Chrome里自带的Lighthouse，[这也有个网页版的](https://pagespeed.web.dev/)
-4. 传输工具：
+4.传输工具：
 - 在内网使用lnmp的ftp备份网站到有raid的储存空间，python源码在我的GitHub上。
 - Croc，SCP
 - 主要还是考虑稳定性和加密，证书自签并安装。
 - 现成的基础设施
 
-5. Nginx的配置（lnmp默认的配置文件里的我就不写了）：
+5.Nginx的配置（lnmp默认的配置文件里的我就不写了）：
 - 反向代理
 为反向代理设置自定义错误页面
 ```
@@ -84,15 +84,15 @@ server {
     }
 ```
 
-6. 网站统计：
+6.网站统计：
 - [https://matomo.org/](https://matomo.org/)
 
 - [https://www.v2ex.com/t/900201](https://www.v2ex.com/t/900201)
 
-7. 文件内容的批量替换（以前用得宝塔插件，其实命令也挺简单的，适用于Linux和Mac）：
+7.文件内容的批量替换（以前用得宝塔插件，其实命令也挺简单的，适用于Linux和Mac）：
 - 基于find和grep内容替换，这个达不到我的要求。`grep -rl “str1” dir | xargs sed -i “” ‘s/str2/str3/g’`
 - 使用rpl：安装：`sudo apt-get rpl ` ，替换当前文件夹下：`rpl "str1" "str2" ./* `，遍历当前文件夹下所有的：`rpl -r "str1" "str2" ./* `
 
-8. 面板搭建：
+8.面板搭建：
 https://webmin.com/download/
 https://www.ispconfig.org/ispconfig/download/
