@@ -31,6 +31,6 @@
 * Blog Debug (程序测试)
     * [TextContent 文本测试](./0000/Text)
     * [ImageContent 图片测试](./0000/Media)
-    * [VideoContent 图片测试](./0000/Video)
+    * [VideoContent 视频测试](./0000/Video)
     * [404 Page](./0000/xxxxxx)
     * [Colors 颜色选择](./0000/Colors)
