@@ -24,6 +24,8 @@ access_by_lua_file /usr/local/nginx/conf/waf/waf.lua;
 [这里](https://www.tuiwo.cc/38.html)有具体的教程。
 
 - 证书及自签证书，这个我blog会有单独的文章。
+[step-ca open source server](https://smallstep.com/docs/step-ca)
+[FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
 
 - [Cloudflare: Universal Edge Certificate deleted and SSL Version or Cipher mismatch](https://community.cloudflare.com/t/universal-edge-certificate-deleted-and-ssl-version-or-cipher-mismatch/315296)
 
@@ -90,3 +92,7 @@ server {
 7. 文件内容的批量替换（以前用得宝塔插件，其实命令也挺简单的，适用于Linux和Mac）：
 - 基于find和grep内容替换，这个达不到我的要求。`grep -rl “str1” dir | xargs sed -i “” ‘s/str2/str3/g’`
 - 使用rpl：安装：`sudo apt-get rpl ` ，替换当前文件夹下：`rpl "str1" "str2" ./* `，遍历当前文件夹下所有的：`rpl -r "str1" "str2" ./* `
+
+8. 面板搭建：
+https://webmin.com/download/
+https://www.ispconfig.org/ispconfig/download/
