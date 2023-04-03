@@ -23,15 +23,28 @@
         }
         img{ width:auto; height:auto; max-width:100%; max-height:100%;}
         code {
-            font-family: Consolas,"courier new";
-            color: crimson;
-            background-color: #DCDCDC;
-            white-space: pre-wrap;      /* CSS3 */   
-            white-space: -moz-pre-wrap; /* Firefox */    
-            white-space: -pre-wrap;     /* Opera <7 */   
-            white-space: -o-pre-wrap;   /* Opera 7 */    
-            word-wrap: break-word;      /* IE */
-            }
+            display: block;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        code::before {
+            content: attr(data-lang) "  ";
+            color: #666;
+            font-weight: bold;
+        }
+        code:hover {
+            cursor: pointer;
+        }
+        code::selection {
+            background-color: #ddd;
+        }
         .myButton {
             box-shadow: 0px 10px 14px -7px #276873;
             background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
