@@ -36,3 +36,11 @@ sudo journalctl -a -u qqvps   #查看所有日志
 sudo journalctl -a -f -u qqvps  #持续查看日志
 ```
 Refer: [https://blog.hifool.cn/posts/systemted/](https://blog.hifool.cn/posts/systemted/)
+
+
+##其它系统，准备晚点整理下：
+[Unraid 后台实现自定义开机脚本](https://www.zleoco.com/?p=587)
+
+[在openwrt系统中设置开机自启服务](https://sparkydogx.github.io/2019/01/09/openwrt-service-startup/)
+
+[pandolia/easy-service Windows系统服务](https://github.com/pandolia/easy-service/)
