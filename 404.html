@@ -250,7 +250,7 @@
     const parsedUrl = new URL(url);
     const hostname = parsedUrl.hostname;
     let path = parsedUrl.pathname;
-    if (domainList_1.includes(hostname) && !path.startsWith('/?p=')) {
+    if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
         path = path.replace('/', '');
         const newPath = '?p=' + path;
         link.href = parsedUrl.origin + newPath + parsedUrl.hash;
