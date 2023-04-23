@@ -163,7 +163,6 @@
         return(false);
     }
     function PathRewrite(){
-        const PathRewriteDomains = ["sheng.pages.dev"]
         //自动改写超链接到/?p=xxx以避免404错误码
         const LinksInPage = document.querySelectorAll('a');
         LinksInPage.forEach(link => {
@@ -178,13 +177,15 @@
             link.href = parsedUrl.origin + newPath + parsedUrl.hash;
         }
         });
-        if (PathRewriteDomains.includes(hostname)){
-            document.getElementById("button_1").href = "/";
+    }
+    function ButtonRewrite(){
+    if (PathRewriteDomains.includes(hostname)){
+            document.getElementById("button_1").href = getDomain();
             document.getElementById("button_2").href = "/?p=List";
             document.getElementById("button_3").href = "/?p=About";
         }
         else{
-            document.getElementById("button_1").href = "/";
+            document.getElementById("button_1").href = getDomain();
             document.getElementById("button_2").href = "/List";
             document.getElementById("button_3").href = "/About";
         }
@@ -209,6 +210,30 @@
         PathRewrite()
         }
 
+
+ 
+    function DomainCheck(){
+        // 如果当前域名不在允许列表中，将跳转到指定的域名
+        if (allowedDomains.includes(getDomain())) {
+            console.log("Domain Allowed")
+        }
+        else{
+            console.log("Domain Disallowed")
+            const newUrl = 'https://sheng.pages.dev/' + getPath();
+            window.location.href = newUrl;
+        }
+    }
+
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+        {
+            includedLanguages: 'en,zh-CN,zh-HK,zh-TW,hr,cs,da,nl,fr,de,el,iw,hu,ga,it,ja,ko,pt,ro,ru,sr,es,th,vi',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: true, 
+        }, 
+        'google_translate_element'
+        );
+    }
     
     document.getElementById('body_blog_title').innerHTML = blog_name;
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
@@ -245,17 +270,6 @@
       };
       xhr.send();
 
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-        {
-            includedLanguages: 'en,zh-CN,zh-HK,zh-TW,hr,cs,da,nl,fr,de,el,iw,hu,ga,it,ja,ko,pt,ro,ru,sr,es,th,vi',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: true, 
-        }, 
-        'google_translate_element'
-        );
-    }
-
     document.addEventListener('scroll', function(e) {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
         var scrollHeight = document.documentElement.scrollHeight // 文档总高度
@@ -263,47 +277,8 @@
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
 
- 
-    function DomainCheck(){
-        const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.kkk.plus/"];
-        // 如果当前域名不在允许列表中，将跳转到指定的域名
-        if (allowedDomains.includes(getDomain())) {
-            console.log("Domain Allowed")
-        }
-        else{
-            console.log("Domain Disallowed")
-            const newUrl = 'https://sheng.pages.dev/' + getPath();
-            window.location.href = newUrl;
-        }
-
-        const PathRewriteDomains = ["sheng.pages.dev"]
-        //自动改写超链接到/?p=xxx以避免404错误码
-        const LinksInPage = document.querySelectorAll('a');
-        LinksInPage.forEach(link => {
-        const url = link.href;
-        console.log(url)
-        const parsedUrl = new URL(url);
-        const hostname = parsedUrl.hostname;
-        let path = parsedUrl.pathname;
-        if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
-            path = path.replace('/', '');
-            const newPath = '?p=' + path;
-            link.href = parsedUrl.origin + newPath + parsedUrl.hash;
-        }
-        });
-        if (PathRewriteDomains.includes(hostname)){
-            document.getElementById("button_1").href = "/";
-            document.getElementById("button_2").href = "/?p=List";
-            document.getElementById("button_3").href = "/?p=About";
-        }
-        else{
-            document.getElementById("button_1").href = "/";
-            document.getElementById("button_2").href = "/List";
-            document.getElementById("button_3").href = "/About";
-        }
-    }
-
     window.onload = DomainCheck;
+    ButtonRewrite()
 
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>

@@ -98,25 +98,26 @@
     </center>
     <div id="container">
         <div id="header" style="background-color:#acf6ef;border-radius:25px;">
-            <h1 id="article_title" style="margin-bottom:0;border-radius:25px;text-align:center;">Article_Title</h1>
+            <h1 id="article_title" style="margin-bottom:0;border-radius:25px;text-align:center;">Loading...</h1>
         </div>
         <div id="article_content" style="background-color:#cbf5fb;width:100%;word-break:break-all;word-wrap:break-word;border-radius:5px;">
-            <center>
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 128 128">
-                    <g>
-                        <circle cx="16" cy="64" r="16" fill="#ff3300" fill-opacity="1"/>
-                        <circle cx="16" cy="64" r="16" fill="#ff7755" fill-opacity="0.67" transform="rotate(45,64,64)"/>
-                        <circle cx="16" cy="64" r="16" fill="#ffa994" fill-opacity="0.42" transform="rotate(90,64,64)"/>
-                        <circle cx="16" cy="64" r="16" fill="#ffd6cc" fill-opacity="0.2" transform="rotate(135,64,64)"/>
-                        <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(180,64,64)"/>
-                        <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(225,64,64)"/>
-                        <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(270,64,64)"/>
-                        <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(315,64,64)"/>
-                        <animateTransform attributeName="transform" type="rotate" values="0 64 64;315 64 64;270 64 64;225 64 64;180 64 64;135 64 64;90 64 64;45 64 64" calcMode="discrete" dur="720ms" repeatCount="indefinite"></animateTransform>
-                    </g>
-                </svg>
-                <br>You should enable Javascript to work with this page.</div>
-            </center>
+        <center>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 128 128">
+                <g>
+                    <circle cx="16" cy="64" r="16" fill="#ff3300" fill-opacity="1"/>
+                    <circle cx="16" cy="64" r="16" fill="#ff7755" fill-opacity="0.67" transform="rotate(45,64,64)"/>
+                    <circle cx="16" cy="64" r="16" fill="#ffa994" fill-opacity="0.42" transform="rotate(90,64,64)"/>
+                    <circle cx="16" cy="64" r="16" fill="#ffd6cc" fill-opacity="0.2" transform="rotate(135,64,64)"/>
+                    <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(180,64,64)"/>
+                    <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(225,64,64)"/>
+                    <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(270,64,64)"/>
+                    <circle cx="16" cy="64" r="16" fill="#ffe7e1" fill-opacity="0.12" transform="rotate(315,64,64)"/>
+                    <animateTransform attributeName="transform" type="rotate" values="0 64 64;315 64 64;270 64 64;225 64 64;180 64 64;135 64 64;90 64 64;45 64 64" calcMode="discrete" dur="720ms" repeatCount="indefinite"></animateTransform>
+                </g>
+            </svg>
+            <br>You should enable Javascript to work with this page.</div>
+        </center>
+        <div id="disqus_thread"></div>
         <div style="background-color:#acf6ef;clear:both;text-align:center;border-radius:25px;"><h2 id="footer">Copyright © example.com</h2></div>
     </div>     
 </body>
@@ -147,6 +148,12 @@
     }
     function getQueryVariable(variable)
     {
+        /*
+        url 实例：
+        https://www.example.com/index.php?id=1&image=awesome.jpg
+        调用 getQueryVariable("id") 返回 1。
+        调用 getQueryVariable("image") 返回 "awesome.jpg"。
+        */
         var query = window.location.search.substring(1);
         var vars = query.split("&");
         for (var i=0;i<vars.length;i++) {
@@ -156,7 +163,6 @@
         return(false);
     }
     function PathRewrite(){
-        const PathRewriteDomains = ["sheng.pages.dev"]
         //自动改写超链接到/?p=xxx以避免404错误码
         const LinksInPage = document.querySelectorAll('a');
         LinksInPage.forEach(link => {
@@ -171,19 +177,22 @@
             link.href = parsedUrl.origin + newPath + parsedUrl.hash;
         }
         });
-        if (PathRewriteDomains.includes(hostname)){
-            document.getElementById("button_1").href = "/";
+    }
+    function ButtonRewrite(){
+    if (PathRewriteDomains.includes(hostname)){
+            document.getElementById("button_1").href = getDomain();
             document.getElementById("button_2").href = "/?p=List";
             document.getElementById("button_3").href = "/?p=About";
         }
         else{
-            document.getElementById("button_1").href = "/";
+            document.getElementById("button_1").href = getDomain();
             document.getElementById("button_2").href = "/List";
             document.getElementById("button_3").href = "/About";
         }
     }
     function LoadHTML(markdown_text){
         var htmlpage = new showdown.Converter(),
+        //text      = '# hello, markdown!',
         text      = markdown_text,
         html      = htmlpage.makeHtml(text);
 
@@ -201,92 +210,9 @@
         PathRewrite()
         }
 
-    
-    document.getElementById('body_blog_title').innerHTML = blog_name;
 
-    document.getElementsByTagName("title")[0].innerText = blog_name;//加载Blog名称作为html标题
-
-    document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
-    let xhr = new XMLHttpRequest();
-    
-    let name=getQueryVariable("p");//是一种以参数的方式显示文章的方法，默认不使用这种方法。使用?p参数, 参考WordPress。
-    if (name){
-        var md_url = getDomain()+"articles/"+name+".md";
-        xhr.open("get", md_url, true);
-        xhr.onload = function () {
-            if (this.status == 200) {
-            // if (callback) {
-            // callback();
-            //console.log(this.response)
-            LoadHTML(this.response)
-            //const reader = new FileReader()
-            //reader.onload = function () {
-            //  console.log('reader.result', reader.result)
-            //}
-            //reader.readAsText(this.response);
-
-
-            //加载标题
-            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("p")).split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
-            //加载body中的标题
-            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("p")).split("/").pop();
-            }
-            else{
-                //如果文章不存在
-                document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
-                document.getElementById('article_title').innerHTML = "404 "+blog_language_404;//加载body中的标题
-                //加载body中的文章
-                document.getElementById('article_content').innerHTML= "";
-            
-
-            }
-        };
-        xhr.send();
-    }
-    else{
-        //如果没有参数直接显示index page
-        document.getElementById('article_title').innerHTML = blog_language_index;//首页不需要body中的文章标题，因此清空body中的标题
-        let xhr = new XMLHttpRequest();
-        var md_url = getDomain()+"articles/index.md";
-        xhr.open("get", md_url, true);
-        xhr.onload = function () {
-            if (this.status == 200) {
-            // if (callback) {
-            // callback();
-            console.log(this.response)
-            LoadHTML(this.response)
-            //const reader = new FileReader()
-            //reader.onload = function () {
-            //  console.log('reader.result', reader.result)
-            //}
-            //reader.readAsText(this.response);            
-            }
-
-        };
-        xhr.send();
-    }
-    
-       
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-        {
-            includedLanguages: 'en,zh-CN,zh-HK,zh-TW,hr,cs,da,nl,fr,de,el,iw,hu,ga,it,ja,ko,pt,ro,ru,sr,es,th,vi',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: true, 
-        }, 
-        'google_translate_element'
-        );
-    }
-
-    document.addEventListener('scroll', function(e) {
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
-        var scrollHeight = document.documentElement.scrollHeight // 文档总高度
-        var clientHeight = document.documentElement.clientHeight // 窗口可视高度
-        document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
-    })
  
     function DomainCheck(){
-        const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.kkk.plus/"];
         // 如果当前域名不在允许列表中，将跳转到指定的域名
         if (allowedDomains.includes(getDomain())) {
             console.log("Domain Allowed")
@@ -298,9 +224,62 @@
         }
     }
 
-    window.onload = DomainCheck;
-
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+        {
+            includedLanguages: 'en,zh-CN,zh-HK,zh-TW,hr,cs,da,nl,fr,de,el,iw,hu,ga,it,ja,ko,pt,ro,ru,sr,es,th,vi',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: true, 
+        }, 
+        'google_translate_element'
+        );
+    }
     
+    document.getElementById('body_blog_title').innerHTML = blog_name;
+    document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
+    let xhr = new XMLHttpRequest();
+    var md_url = getDomain()+"articles/"+getPath()+".md";
+    xhr.open("get", md_url, true);
+    xhr.onload = function () {
+        if (this.status == 200) {
+          // if (callback) {
+          // callback();
+          //console.log(this.response)
+          LoadHTML(this.response)
+          //const reader = new FileReader()
+          //reader.onload = function () {
+          //  console.log('reader.result', reader.result)
+          //}
+          //reader.readAsText(this.response);
+
+
+          //加载标题
+          document.getElementsByTagName("title")[0].innerText = decodeURI(getPath().split("/").pop())+"_"+blog_name;//是路径中最后一个斜杠后面的文字
+          //加载body中的标题
+          document.getElementById('article_title').innerHTML = decodeURI(getPath().split("/").pop());
+        }
+        else{
+            //如果文章不存在
+            document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
+            document.getElementById('article_title').innerHTML = "404 "+blog_language_404;//加载body中的标题
+            //加载body中的文章
+            document.getElementById('article_content').innerHTML= "";
+        
+
+        }
+      };
+      xhr.send();
+
+    document.addEventListener('scroll', function(e) {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
+        var scrollHeight = document.documentElement.scrollHeight // 文档总高度
+        var clientHeight = document.documentElement.clientHeight // 窗口可视高度
+        document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
+    })
+
+    window.onload = DomainCheck;
+    ButtonRewrite()
+
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
 <!--Google Translate
