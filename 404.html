@@ -234,6 +234,41 @@
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
 
+
+
+    const domainList_1 = ['sheng.pages.dev', 'example.com'];
+    const domainList_2 = ['sheng.kkk.plus']
+
+    if (!domainList_1.includes(currentDomain) && !domainList_2.includes(currentDomain)) {
+    // 如果当前域名不在允许列表中，将跳转到指定的域名
+    const newUrl = 'https://sheng.pages.dev/' + getPath();
+    window.location.href = newUrl;
+}
+    // 获取页面中所有的超链接元素
+    const links = document.querySelectorAll('a');
+
+    // 遍历每个超链接
+    links.forEach(link => {
+    // 获取超链接的原始URL
+    const url = link.href;
+
+    // 解析URL，获取主机名和路径
+    const parsedUrl = new URL(url);
+    const hostname = parsedUrl.hostname;
+    let path = parsedUrl.pathname;
+
+    // 判断主机名是否在列表中
+    if (domainList.includes(hostname) && !path.startsWith('/?p=')) {
+        // 将路径转换为新的格式
+        path = path.replace('/', '');
+        const newPath = '?p=' + path;
+
+        // 将超链接的href属性替换为新的URL
+        link.href = parsedUrl.origin + newPath + parsedUrl.hash;
+    }
+    });
+
+
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
 <!--Google Translate
