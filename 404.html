@@ -244,8 +244,8 @@
 
     //自动改写超链接到/?p=xxx以避免404错误码
     const PathRewriteDomains = ["sheng.pages.dev"]
-    const links = document.querySelectorAll('a');
-    links.forEach(link => {
+    const LinksInPage = document.querySelectorAll('a');
+    LinksInPage.forEach(link => {
     const url = link.href;
     const parsedUrl = new URL(url);
     const hostname = parsedUrl.hostname;
