@@ -234,30 +234,32 @@
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
 
+    function DomainCheck(){
+        const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.pages.dev/"];
+        // 如果当前域名不在允许列表中，将跳转到指定的域名
+        if (!domainList_1.includes(getDomain()) && !domainList_2.includes(getDomain())) {
+        const newUrl = 'https://sheng.pages.dev/' + getPath();
+        window.location.href = newUrl;
+        }
 
-    const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.pages.dev/"];
-    // 如果当前域名不在允许列表中，将跳转到指定的域名
-    if (!domainList_1.includes(getDomain()) && !domainList_2.includes(getDomain())) {
-    const newUrl = 'https://sheng.pages.dev/' + getPath();
-    window.location.href = newUrl;
+        //自动改写超链接到/?p=xxx以避免404错误码
+        const PathRewriteDomains = ["sheng.pages.dev"]
+        const LinksInPage = document.querySelectorAll('a');
+        LinksInPage.forEach(link => {
+        const url = link.href;
+        const parsedUrl = new URL(url);
+        const hostname = parsedUrl.hostname;
+        let path = parsedUrl.pathname;
+        if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
+            path = path.replace('/', '');
+            const newPath = '?p=' + path;
+            link.href = parsedUrl.origin + newPath + parsedUrl.hash;
+        }
+        });
     }
 
-    //自动改写超链接到/?p=xxx以避免404错误码
-    const PathRewriteDomains = ["sheng.pages.dev"]
-    const LinksInPage = document.querySelectorAll('a');
-    LinksInPage.forEach(link => {
-    const url = link.href;
-    const parsedUrl = new URL(url);
-    const hostname = parsedUrl.hostname;
-    let path = parsedUrl.pathname;
-    if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
-        path = path.replace('/', '');
-        const newPath = '?p=' + path;
-        link.href = parsedUrl.origin + newPath + parsedUrl.hash;
-    }
-    });
-
-
+    window.onload = DomainCheck;
+    
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
 <!--Google Translate
