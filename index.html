@@ -284,10 +284,12 @@
         }
         });
         if (PathRewriteDomains.includes(hostname)){
+            document.getElementById("button_1").href = "/";
             document.getElementById("button_2").href = "/?p=List";
             document.getElementById("button_3").href = "/?p=About";
         }
         else{
+            document.getElementById("button_1").href = "/";
             document.getElementById("button_2").href = "/List";
             document.getElementById("button_3").href = "/About";
         }
