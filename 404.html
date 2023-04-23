@@ -179,12 +179,7 @@
         });
     }
     function ButtonRewrite(){
-        const url = link.href;
-        console.log(url)
-        const parsedUrl = new URL(url);
-        const hostname = parsedUrl.hostname;
-        let path = parsedUrl.pathname;
-        if (PathRewriteDomains.includes(hostname)){
+        if (PathRewriteDomains.includes(document.domain)){
             document.getElementById("button_1").href = getDomain();
             document.getElementById("button_2").href = "/?p=List";
             document.getElementById("button_3").href = "/?p=About";
@@ -215,16 +210,14 @@
         PathRewrite()
         }
 
-
- 
     function DomainCheck(){
         // 如果当前域名不在允许列表中，将跳转到指定的域名
-        if (allowedDomains.includes(getDomain())) {
+        if (allowedDomains.includes(document.domain)) {
             console.log("Domain Allowed")
         }
         else{
             console.log("Domain Disallowed")
-            const newUrl = 'https://sheng.pages.dev/' + getPath();
+            const newUrl = ForceJumpBack + getPath();
             window.location.href = newUrl;
         }
     }

@@ -1,3 +1,4 @@
 var blog_name="Sheng's Blog";
-var allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.kkk.plus/"];
+var allowedDomains = ["sheng.pages.dev", "blog.example.com", "sheng.kkk.plus"];
 var PathRewriteDomains = ["sheng.pages.dev"]
+var ForceJumpBack = "https://sheng.pages.dev/"
