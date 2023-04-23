@@ -246,23 +246,22 @@
             window.location.href = newUrl;
         }
 
-        //自动改写超链接到/?p=xxx以避免404错误码
-        const PathRewriteDomains = ["sheng.pages.dev"]
-        const LinksInPage = document.querySelectorAll('a');
-        LinksInPage.forEach(link => {
-        const url = link.href;
-        console.log(url)
-        const parsedUrl = new URL(url);
-        const hostname = parsedUrl.hostname;
-        let path = parsedUrl.pathname;
-        if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
-            path = path.replace('/', '');
-            const newPath = '?p=' + path;
-            link.href = parsedUrl.origin + newPath + parsedUrl.hash;
-        }
-        });
-
         if (PathRewriteDomains.includes(hostname)){
+            //自动改写超链接到/?p=xxx以避免404错误码
+            const PathRewriteDomains = ["sheng.pages.dev"]
+            const LinksInPage = document.querySelectorAll('a');
+            LinksInPage.forEach(link => {
+            const url = link.href;
+            console.log(url)
+            const parsedUrl = new URL(url);
+            const hostname = parsedUrl.hostname;
+            let path = parsedUrl.pathname;
+            if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
+                path = path.replace('/', '');
+                const newPath = '?p=' + path;
+                link.href = parsedUrl.origin + newPath + parsedUrl.hash;
+            }
+            });
             document.getElementById("button_2").href = "/?p=List";
             document.getElementById("button_3").href = "/?p=About";
         }
