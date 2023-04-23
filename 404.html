@@ -94,7 +94,7 @@
     <div id="google_translate_element" style="position:absolute;top:10px;right:10px;z-index:2000;opacity:0.8"></div><br>
 	<center>
         <h1 id="body_blog_title"><strong>Blog_Title</strong></h1>
-        <a class="myButton" id="button_1" href="/">Button_1</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_2"href="/List">Button_2</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_3" href="/About">Button_3</a>
+        <a class="myButton" id="button_1" href="/">Button_1</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_2" href="/List">Button_2</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_3" href="/About">Button_3</a>
     </center>
     <div id="container">
         <div id="header" style="background-color:#acf6ef;border-radius:25px;">
@@ -261,6 +261,15 @@
             link.href = parsedUrl.origin + newPath + parsedUrl.hash;
         }
         });
+
+        if (PathRewriteDomains.includes(hostname)){
+            document.getElementById("button_2").href = "/?p=List";
+            document.getElementById("button_3").href = "/?p=About";
+        }
+        else{
+            document.getElementById("button_2").href = "/List";
+            document.getElementById("button_3").href = "/About";
+        }
     }
 
     window.onload = DomainCheck;
