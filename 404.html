@@ -238,37 +238,63 @@
     document.getElementById('body_blog_title').innerHTML = blog_name;
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
-    var md_url = getDomain()+"articles/"+getPath()+".md";
-    xhr.open("get", md_url, true);
-    xhr.onload = function () {
-        if (this.status == 200) {
-          // if (callback) {
-          // callback();
-          //console.log(this.response)
-          LoadHTML(this.response)
-          //const reader = new FileReader()
-          //reader.onload = function () {
-          //  console.log('reader.result', reader.result)
-          //}
-          //reader.readAsText(this.response);
+    let name=getQueryVariable("p");//是一种以参数的方式显示文章的方法，默认不使用这种方法。使用?p参数, 参考WordPress。
+    if (name){
+        var md_url = getDomain()+"articles/"+name+".md";
+        xhr.open("get", md_url, true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+            // if (callback) {
+            // callback();
+            //console.log(this.response)
+            LoadHTML(this.response)
+            //const reader = new FileReader()
+            //reader.onload = function () {
+            //  console.log('reader.result', reader.result)
+            //}
+            //reader.readAsText(this.response);
 
 
-          //加载标题
-          document.getElementsByTagName("title")[0].innerText = decodeURI(getPath().split("/").pop())+"_"+blog_name;//是路径中最后一个斜杠后面的文字
-          //加载body中的标题
-          document.getElementById('article_title').innerHTML = decodeURI(getPath().split("/").pop());
-        }
-        else{
-            //如果文章不存在
-            document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
-            document.getElementById('article_title').innerHTML = "404 "+blog_language_404;//加载body中的标题
-            //加载body中的文章
-            document.getElementById('article_content').innerHTML= "";
-        
+            //加载标题
+            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("p")).split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
+            //加载body中的标题
+            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("p")).split("/").pop();
+            }
+            else{
+                //如果文章不存在
+                document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
+                document.getElementById('article_title').innerHTML = "404 "+blog_language_404;//加载body中的标题
+                //加载body中的文章
+                document.getElementById('article_content').innerHTML= "";
+            
 
-        }
-      };
-      xhr.send();
+            }
+        };
+        xhr.send();
+    }
+    else{
+        //如果没有参数直接显示index page
+        document.getElementById('article_title').innerHTML = blog_language_index;//首页不需要body中的文章标题，因此清空body中的标题
+        let xhr = new XMLHttpRequest();
+        var md_url = getDomain()+"articles/index.md";
+        xhr.open("get", md_url, true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+            // if (callback) {
+            // callback();
+            console.log(this.response)
+            LoadHTML(this.response)
+            //const reader = new FileReader()
+            //reader.onload = function () {
+            //  console.log('reader.result', reader.result)
+            //}
+            //reader.readAsText(this.response);            
+            }
+
+        };
+        xhr.send();
+    }
+    
 
     document.addEventListener('scroll', function(e) {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
