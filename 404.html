@@ -94,7 +94,7 @@
     <div id="google_translate_element" style="position:absolute;top:10px;right:10px;z-index:2000;opacity:0.8"></div><br>
 	<center>
         <h1 id="body_blog_title"><strong>Blog_Title</strong></h1>
-        <a class="myButton" id="button_1" href="/">Button_1</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_2" href="/List">Button_2</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_3" href="/About">Button_3</a>
+        <a class="myButton" id="button_1" href="/">Button_1</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_2"href="/List">Button_2</a>&nbsp;&nbsp;&nbsp;<a class="myButton" id="button_3" href="/About">Button_3</a>
     </center>
     <div id="container">
         <div id="header" style="background-color:#acf6ef;border-radius:25px;">
@@ -162,34 +162,6 @@
         }
         return(false);
     }
-    function PathRewrite(){
-        //自动改写超链接到/?p=xxx以避免404错误码
-        const LinksInPage = document.querySelectorAll('a');
-        LinksInPage.forEach(link => {
-        const url = link.href;
-        console.log(url)
-        const parsedUrl = new URL(url);
-        const hostname = parsedUrl.hostname;
-        let path = parsedUrl.pathname;
-        if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
-            path = path.replace('/', '');
-            const newPath = '?p=' + path;
-            link.href = parsedUrl.origin + newPath + parsedUrl.hash;
-        }
-        });
-    }
-    function ButtonRewrite(){
-        if (PathRewriteDomains.includes(document.domain)){
-            document.getElementById("button_1").href = getDomain();
-            document.getElementById("button_2").href = "/?p=List";
-            document.getElementById("button_3").href = "/?p=About";
-        }
-        else{
-            document.getElementById("button_1").href = getDomain();
-            document.getElementById("button_2").href = "/List";
-            document.getElementById("button_3").href = "/About";
-        }
-    }
     function LoadHTML(markdown_text){
         var htmlpage = new showdown.Converter(),
         //text      = '# hello, markdown!',
@@ -206,21 +178,43 @@
 
         //var name = 'leo';
         //var htmlStr = `<div><span>${name}</span></div>`
-
-        PathRewrite()
         }
 
-    function DomainCheck(){
-        // 如果当前域名不在允许列表中，将跳转到指定的域名
-        if (allowedDomains.includes(document.domain)) {
-            console.log("Domain Allowed")
+    
+    document.getElementById('body_blog_title').innerHTML = blog_name;
+    document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
+    let xhr = new XMLHttpRequest();
+    var md_url = getDomain()+"articles/"+getPath()+".md";
+    xhr.open("get", md_url, true);
+    xhr.onload = function () {
+        if (this.status == 200) {
+          // if (callback) {
+          // callback();
+          //console.log(this.response)
+          LoadHTML(this.response)
+          //const reader = new FileReader()
+          //reader.onload = function () {
+          //  console.log('reader.result', reader.result)
+          //}
+          //reader.readAsText(this.response);
+
+
+          //加载标题
+          document.getElementsByTagName("title")[0].innerText = decodeURI(getPath().split("/").pop())+"_"+blog_name;//是路径中最后一个斜杠后面的文字
+          //加载body中的标题
+          document.getElementById('article_title').innerHTML = decodeURI(getPath().split("/").pop());
         }
         else{
-            console.log("Domain Disallowed")
-            const newUrl = ForceJumpBack + getPath();
-            window.location.href = newUrl;
+            //如果文章不存在
+            document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
+            document.getElementById('article_title').innerHTML = "404 "+blog_language_404;//加载body中的标题
+            //加载body中的文章
+            document.getElementById('article_content').innerHTML= "";
+        
+
         }
-    }
+      };
+      xhr.send();
 
     function googleTranslateElementInit() {
         new google.translate.TranslateElement(
@@ -232,67 +226,6 @@
         'google_translate_element'
         );
     }
-    
-    document.getElementById('body_blog_title').innerHTML = blog_name;
-    document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
-    let xhr = new XMLHttpRequest();
-    let name=getQueryVariable("p");//是一种以参数的方式显示文章的方法，默认不使用这种方法。使用?p参数, 参考WordPress。
-    if (name){
-        var md_url = getDomain()+"articles/"+name+".md";
-        xhr.open("get", md_url, true);
-        xhr.onload = function () {
-            if (this.status == 200) {
-            // if (callback) {
-            // callback();
-            //console.log(this.response)
-            LoadHTML(this.response)
-            //const reader = new FileReader()
-            //reader.onload = function () {
-            //  console.log('reader.result', reader.result)
-            //}
-            //reader.readAsText(this.response);
-
-
-            //加载标题
-            document.getElementsByTagName("title")[0].innerText = decodeURI(getQueryVariable("p")).split("/").pop()+"_"+blog_name;//是路径中最后一个斜杠后面的文字
-            //加载body中的标题
-            document.getElementById('article_title').innerHTML = decodeURI(getQueryVariable("p")).split("/").pop();
-            }
-            else{
-                //如果文章不存在
-                document.getElementsByTagName("title")[0].innerText = "404_"+blog_name;//加载标题
-                document.getElementById('article_title').innerHTML = "404 "+blog_language_404;//加载body中的标题
-                //加载body中的文章
-                document.getElementById('article_content').innerHTML= "";
-            
-
-            }
-        };
-        xhr.send();
-    }
-    else{
-        //如果没有参数直接显示index page
-        document.getElementById('article_title').innerHTML = blog_language_index;//首页不需要body中的文章标题，因此清空body中的标题
-        let xhr = new XMLHttpRequest();
-        var md_url = getDomain()+"articles/index.md";
-        xhr.open("get", md_url, true);
-        xhr.onload = function () {
-            if (this.status == 200) {
-            // if (callback) {
-            // callback();
-            console.log(this.response)
-            LoadHTML(this.response)
-            //const reader = new FileReader()
-            //reader.onload = function () {
-            //  console.log('reader.result', reader.result)
-            //}
-            //reader.readAsText(this.response);            
-            }
-
-        };
-        xhr.send();
-    }
-    
 
     document.addEventListener('scroll', function(e) {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
@@ -300,9 +233,6 @@
         var clientHeight = document.documentElement.clientHeight // 窗口可视高度
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
-
-    window.onload = DomainCheck;
-    ButtonRewrite()
 
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
