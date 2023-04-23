@@ -255,7 +255,7 @@
         var clientHeight = document.documentElement.clientHeight // 窗口可视高度
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
-
+ 
     function DomainCheck(){
         const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.kkk.plus/"];
         // 如果当前域名不在允许列表中，将跳转到指定的域名
@@ -269,21 +269,21 @@
         }
 
         const PathRewriteDomains = ["sheng.pages.dev"]
+        //自动改写超链接到/?p=xxx以避免404错误码
+        const LinksInPage = document.querySelectorAll('a');
+        LinksInPage.forEach(link => {
+        const url = link.href;
+        console.log(url)
+        const parsedUrl = new URL(url);
+        const hostname = parsedUrl.hostname;
+        let path = parsedUrl.pathname;
+        if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
+            path = path.replace('/', '');
+            const newPath = '?p=' + path;
+            link.href = parsedUrl.origin + newPath + parsedUrl.hash;
+        }
+        });
         if (PathRewriteDomains.includes(hostname)){
-            //自动改写超链接到/?p=xxx以避免404错误码
-            const LinksInPage = document.querySelectorAll('a');
-            LinksInPage.forEach(link => {
-            const url = link.href;
-            console.log(url)
-            const parsedUrl = new URL(url);
-            const hostname = parsedUrl.hostname;
-            let path = parsedUrl.pathname;
-            if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
-                path = path.replace('/', '');
-                const newPath = '?p=' + path;
-                link.href = parsedUrl.origin + newPath + parsedUrl.hash;
-            }
-            });
             document.getElementById("button_2").href = "/?p=List";
             document.getElementById("button_3").href = "/?p=About";
         }
@@ -294,6 +294,7 @@
     }
 
     window.onload = DomainCheck;
+
     
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>
