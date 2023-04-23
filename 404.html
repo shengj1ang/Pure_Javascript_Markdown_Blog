@@ -234,8 +234,9 @@
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
 
+  
     function DomainCheck(){
-        const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.pages.dev/"];
+        const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.kkk.plus/"];
         // 如果当前域名不在允许列表中，将跳转到指定的域名
         if (allowedDomains.includes(getDomain())) {
             console.log("Domain Allowed")
@@ -246,9 +247,9 @@
             window.location.href = newUrl;
         }
 
+        const PathRewriteDomains = ["sheng.pages.dev"]
         if (PathRewriteDomains.includes(hostname)){
             //自动改写超链接到/?p=xxx以避免404错误码
-            const PathRewriteDomains = ["sheng.pages.dev"]
             const LinksInPage = document.querySelectorAll('a');
             LinksInPage.forEach(link => {
             const url = link.href;
