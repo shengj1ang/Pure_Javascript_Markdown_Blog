@@ -235,16 +235,15 @@
     })
 
 
-
-    const domainList_1 = ['https://sheng.pages.dev/', 'https://blog.example.com/'];
-    const domainList_2 = ['https://sheng.kkk.plus/']
-
-    if (!domainList_1.includes(getDomain()) && !domainList_2.includes(getDomain())) {
+    const allowedDomains = ["https://sheng.pages.dev/", "https://blog.example.com/", "https://sheng.pages.dev/"];
     // 如果当前域名不在允许列表中，将跳转到指定的域名
+    if (!domainList_1.includes(getDomain()) && !domainList_2.includes(getDomain())) {
     const newUrl = 'https://sheng.pages.dev/' + getPath();
     window.location.href = newUrl;
     }
 
+    //自动改写超链接到/?p=xxx以避免404错误码
+    const PathRewriteDomains = ["sheng.pages.dev"]
     const links = document.querySelectorAll('a');
     links.forEach(link => {
     const url = link.href;
