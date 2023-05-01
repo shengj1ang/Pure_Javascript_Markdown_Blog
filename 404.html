@@ -230,6 +230,7 @@
 
     document.getElementById('body_blog_title').innerHTML = blog_name;
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
+    //document.getElementById('footer').innerHTML= "Copyright © "+startYear+"-"+new Date().getFullYear()+" "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
     var md_url = getDomain()+"articles/"+getPath()+".md";
     xhr.open("get", md_url, true);
