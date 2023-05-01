@@ -178,9 +178,56 @@
 
         //var name = 'leo';
         //var htmlStr = `<div><span>${name}</span></div>`
-        }
+    }
 
+    function DomainCheck(){
+        // 如果当前域名不在允许列表中，将跳转到指定的域名
+        if (allowedDomains.includes(document.domain)) {
+            console.log("Domain Allowed")
+        }
+        else{
+            console.log("Domain Disallowed")
+            const newUrl = ForceJumpBack + getPath();
+            window.location.href = newUrl;
+        }
+    }
+       
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+        {
+            includedLanguages: 'en,zh-CN,zh-HK,zh-TW,hr,cs,da,nl,fr,de,el,iw,hu,ga,it,ja,ko,pt,ro,ru,sr,es,th,vi',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: true, 
+        }, 
+        'google_translate_element'
+        );
+    }
     
+    function PathRewrite(){
+        //自动改写超链接到/?p=xxx以避免404错误码
+        const LinksInPage = document.querySelectorAll('a');
+        LinksInPage.forEach(link => {
+        const url = link.href;
+        console.log(url)
+        const parsedUrl = new URL(url);
+        const hostname = parsedUrl.hostname;
+        let path = parsedUrl.pathname;
+        if (PathRewriteDomains.includes(hostname) && !path.startsWith('/?p=')) {
+            path = path.replace('/', '');
+            const newPath = '?p=' + path;
+            link.href = parsedUrl.origin + newPath + parsedUrl.hash;
+        }
+        });
+    }
+
+    function ButtonRewrite(){
+            document.getElementById("button_1").href = getDomain();
+            document.getElementById("button_2").href = "/?p=List";
+            document.getElementById("button_3").href = "/?p=About";
+    }
+
+    DomainCheck();
+
     document.getElementById('body_blog_title').innerHTML = blog_name;
     document.getElementById('footer').innerHTML= "Copyright © "+blog_name;//底部版权
     let xhr = new XMLHttpRequest();
@@ -213,19 +260,17 @@
         
 
         }
+
+        if (PathRewriteDomains.includes(document.domain)){
+            if (getPath()=="List"){
+                PathRewrite();
+            }
+            ButtonRewrite();
+        }
+
+
       };
       xhr.send();
-
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-        {
-            includedLanguages: 'en,zh-CN,zh-HK,zh-TW,hr,cs,da,nl,fr,de,el,iw,hu,ga,it,ja,ko,pt,ro,ru,sr,es,th,vi',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: true, 
-        }, 
-        'google_translate_element'
-        );
-    }
 
     document.addEventListener('scroll', function(e) {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 已经读过被卷起来的文档部分
@@ -233,6 +278,8 @@
         var clientHeight = document.documentElement.clientHeight // 窗口可视高度
         document.getElementById('read_pro_inner').style.width = +(scrollTop/(scrollHeight-clientHeight)).toFixed(2)*100 + '%'
     })
+
+    
 
 </script>
 <script type="text/javascript" charset="UTF-8" src="/plugins.js"></script>

@@ -77,8 +77,8 @@ document.addEventListener("click",(e) =>{
 //----------------------------------------------------DividingLine----------------------------------------------------------------------------------------
 
 //板娘插件（https://github.com/fghrsh/live2d_demo）
+/*
 const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/"; // 注意：live2d_path 参数应使用绝对路径
-// 封装异步加载资源的方法
 function loadExternalResource(url, type) {
 	return new Promise((resolve, reject) => {
 		let tag;
@@ -109,5 +109,6 @@ Promise.all([
 });
 
 
+*/
 
 //----------------------------------------------------DividingLine----------------------------------------------------------------------------------------
