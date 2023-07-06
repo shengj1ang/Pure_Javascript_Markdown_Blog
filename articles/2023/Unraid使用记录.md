@@ -7,11 +7,11 @@ Unraid使用记录
 需要一个U盘（需要品牌的，据说杂牌可能没有GUID，那就没得搞）
 
 下载Unraid.USB.Creator，主要查看U盘GUID而已
-下载链接：https://pan.baidu.com/s/1IjE4AN4aOupNLWLnASWPpg?pwd=wsm2
+下载链接：[https://pan.baidu.com/s/1IjE4AN4aOupNLWLnASWPpg?pwd=wsm2](https://pan.baidu.com/s/1IjE4AN4aOupNLWLnASWPpg?pwd=wsm2)
 提取码：wsm2
 
 下载Unraid开心版6.10.3包
-下载链接：https://pan.baidu.com/s/15mFJKBSrKGIyWU0pe0-9PA?pwd=agjv
+下载链接：[https://pan.baidu.com/s/15mFJKBSrKGIyWU0pe0-9PA?pwd=agjv](https://pan.baidu.com/s/15mFJKBSrKGIyWU0pe0-9PA?pwd=agjv)
 提取码：agjv
 解压密码：boxmoe.com
 
@@ -28,7 +28,7 @@ U盘GUID查看就打开下载的Unraid.USB.Creator，打开的时候就会显示
 格式化U盘和复制文件进去：
 1.格式化U盘，并命名U盘为 <span style="color:#ab4642">UNRAID</span> 必须是大写
 2.将<span style="color:#ab4642">unRAIDServer-6.10.3-x86_64</span>里的文件复制到U盘根目录就行
-3.运行U盘文件里的<span style="color:#ab4642"> make_bootable.bat</span> 脚本，按Y。 完成后就可以开始安装了。
+3.运行U盘文件里的<span style="color:#ab4642">make_bootable.bat</span> 脚本，按Y。 完成后就可以开始安装了。
 
 最后一步：
 1. 将做好的U盘插入要安装的主机，然后启动主机，（建议进入bios里设置下优先启动盘为U盘）
@@ -38,11 +38,11 @@ U盘GUID查看就打开下载的Unraid.USB.Creator，打开的时候就会显示
 * Unraid汉化
 
 第一次登陆GUI界面会让你设置密码
-1. 登录，
-2.点击  【Tools/Language】
-3.输入 [https://gitee.com/ouiae/language-templates/raw/master/limetech/lang-zh_CN.xml](https://gitee.com/ouiae/language-templates/raw/master/limetech/lang-zh_CN.xml)
-3.点击【install 】然后耐心等待。安装完成。
-4.SETTINGS/DisplaySettings
+1. 登录
+2. 点击  【Tools/Language】
+3. 输入 [https://gitee.com/ouiae/language-templates/raw/master/limetech/lang-zh_CN.xml](https://gitee.com/ouiae/language-templates/raw/master/limetech/lang-zh_CN.xml)
+4. 点击【install 】然后耐心等待。安装完成。
+5. SETTINGS/DisplaySettings
 选择【简体中文】---》点击【apply】即可
 
 
