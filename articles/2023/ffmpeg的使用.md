@@ -93,5 +93,4 @@ ffmpeg -f concat -i input.txt -c copy output.mov
 
 [convert from avi to mp4 using ffmpeg](https://stackoverflow.com/questions/21328694/convert-from-avi-to-mp4-using-ffmpeg)
 
-[Extract audio from WEBM to MP3]
-(https://bytefreaks.net/gnulinux/bash/ffmpeg-extract-audio-from-webm-to-mp3)
+[Extract audio from WEBM to MP3](https://bytefreaks.net/gnulinux/bash/ffmpeg-extract-audio-from-webm-to-mp3)
