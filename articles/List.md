@@ -1,5 +1,6 @@
 * [Index](./)
     - 2023
+        * [EXSi的使用记录](./2023/EXSi的使用记录)
         * [Unraid使用记录](./2023/Unraid使用记录)
         * [UK Driving Test booking links and useful browser scripts](./2023/UK-Driving-Test-Booking-Links-And-Useful-Browser-Scripts)
         * [视频内容预览工具-利用Python实现](./2023/视频内容预览工具-利用Python实现)
