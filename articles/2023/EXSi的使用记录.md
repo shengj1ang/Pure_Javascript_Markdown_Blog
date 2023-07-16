@@ -21,7 +21,7 @@ EXSi系统的安装花费了很多时间，因为新版本的系统(8.0)机械�
 8.0: [https://pan.baidu.com/share/init?surl=QgZcxo1UV3Dybw3Yq_qfSA](https://pan.baidu.com/share/init?surl=QgZcxo1UV3Dybw3Yq_qfSA) 提取码: fejw
 [教程来自YouTube-ESXI8虚拟机下iKuai +OpenWrt，最强双软路由组合安装教程](https://www.youtube.com/watch?v=TxnMPYra0XI)
 
-6.7(来自Bigdongdong)：[https://drive.google.com/drive/folders/1gssTBxJL5lcDx0y1xajZ_SOuqglx4ahZ?usp=sharing](https://drive.google.com/drive/folders/1gssTBxJL5lcDx0y1xajZ_SOuqglx4ahZ?usp=sharing)‘
+6.7(来自Bigdongdong)：[https://drive.google.com/drive/folders/1gssTBxJL5lcDx0y1xajZ_SOuqglx4ahZ?usp=sharing](https://drive.google.com/drive/folders/1gssTBxJL5lcDx0y1xajZ_SOuqglx4ahZ?usp=sharing)
 [教程来自YouTube-保姆级工控机软路由安装虚拟机VMware ESXI和openwrt系统](https://www.youtube.com/watch?v=kcvkp1ckSmM)
 
 7.0: [https://pan.baidu.com/share/init?surl=QgZcxo1UV3Dybw3Yq_qfSA](https://pan.baidu.com/share/init?surl=QgZcxo1UV3Dybw3Yq_qfSA) 提取碼: g2su
