@@ -9,11 +9,14 @@ Windows版的nps问题还挺严重的，换到新版的也没法解决，而且�
 ## 服务器准备
 
 [卸载阿里云盾\(仅针对阿里云\)](https://help.aliyun.com/document_detail/31777.html)
+
 放行端口
 
 ## 安装轻量级桌面 LXDE
 参考教程：[https://snlcw.com/1335.html](https://snlcw.com/1335.html)
 视频教程：[https://www.youtube.com/watch?v=kXlmmPlYoDo](https://www.youtube.com/watch?v=kXlmmPlYoDo)
+
+以上的参考教程是在Debian下尝试的，我也试着在Debian下安装，可以远程连接但是连接成功后只能进入命令行没有桌面，所以我最终还是用的Ubuntu。
 
 安装命令
 ```
