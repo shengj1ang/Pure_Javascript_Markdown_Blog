@@ -1,5 +1,6 @@
 * [Index](./)
     - 2023
+    	 * [在Ubuntu上安装轻量桌面和Clash以及转发Clash到sock5并且加上密码](./2023/在Ubuntu上安装轻量桌面和Clash以及转发Clash到sock5并且加上密码)
         * [EXSi的使用记录](./2023/EXSi的使用记录)
         * [Unraid使用记录](./2023/Unraid使用记录)
         * [UK Driving Test booking links and useful browser scripts](./2023/UK-Driving-Test-Booking-Links-And-Useful-Browser-Scripts)
