@@ -76,9 +76,9 @@
         * [git 基本命令](./2018/git基本命令)
         * [git SSH Key教程](./2018/gitSSHKey教程)
     - 2017
-        * [How to disable the creation of .DS_Store files for Mac users' folders](./2018/DisableDSStoreInMac)
+        * [How to disable the creation of .DS_Store files for Mac users' folders](./2017/DisableDSStoreInMac)
     - 2016
-        * [Restore/delete system icons on the desktop (Windows Server)](./2016/Restore/deletesystemiconsonthedesktopWindowsServer)
+        * [Restore/delete system icons on the desktop (Windows Server)](./2016/RestoreDeletesystemiconsonthedesktopWindowsServer)
         * [在桌面上还原/删除系统图标（Windows）](./2016/在桌面上还原删除系统图标Windows)
         * [快速创建指定大小文件（Windows、Linux）](./2016/快速创建指定大小文件WindowsLinux)        
 
@@ -89,8 +89,8 @@
       * [openwrt添加服务项](./bookmarks/openwrt添加服务项)
       * [在终端中编译并运行c和c++及oc文件](./bookmarks/在终端中编译并运行c和c++及oc文件)
       * [tools](./bookmarks/tools)
-      * [常用cmd/bat 命令](./bookmarks/常用CmdBat命令)
       * [宽带账号密码忘记怎么办?](./bookmarks/宽带账号密码忘记怎么办)
+      * [常用cmd/bat 命令](./bookmarks/常用CmdBat命令)
       * [中国古代与现代官职对照表](./bookmarks/中国古代与现代官职对照表)
       * [禁止更改桌面背景及活动桌面的批处理_最终版](./bookmarks/禁止更改桌面背景及活动桌面的批处理_最终版)
 
