@@ -36,7 +36,35 @@
         * [宝塔面板降级过强制绑定手机账号教程-2022225更新](./2022/宝塔面板降级过强制绑定手机账号教程-2022225更新)
         * [Force Uninstall Lanschool via cmd script in Windows](./2022/ForceUninstallLanschoolviacmdscriptinWindows)
     - 2021
-        * [x](./2021/x)
+        * [V2ray Gmail SSL Foxmail HandShake Error](./2021/V2rayGmailSSLFoxmailHandShakeError)
+        * [解决NetworkManager内存占用过高的问题](./2021/解决NetworkManager内存占用过高的问题)
+        * [华为系统更新如何关闭提示?](./2021/华为系统更新如何关闭提示)
+        * [Hacking Chrome Dinosaur Game](./2021/HackingChromeDinosaurGame)
+        * [Generate random files with random content in windows](./2021/Generaterandomfileswithrandomcontentinwindows)
+        * [openwrt设置定时任务-远程唤醒计算机](./2021/openwrt设置定时任务-远程唤醒计算机)
+        * [3种通过JavaScript实现前端用户限制](./2021/3种通过JavaScript实现前端用户限制)
+        * [MacOS Adobe提示不是正版软件操作方法](./2021/MacOSAdobe提示不是正版软件操作方法)
+        * [格式化Linux硬盘代码](./2021/格式化Linux硬盘代码)
+        * [How to Turn off YouTube Recommendations Forever In Your Browser](./2021/HowtoTurnoffYouTubeRecommendationsForeverInYourBrowser)
+        * [利用iptables设置端口转发的shell脚本](./2021/利用iptables设置端口转发的shell脚本)
+        * [小米5 刷机安卓11](./2021/小米5刷机安卓11)
+        * [MacOS禁止Adobe Creative Cloud开机自启](./2021/MacOS禁止AdobeCreativeCloud开机自启)
+        * [v2ray相关记录📝](./2021/v2ray相关记录)
+    - 2020
+        * [Configure a L2TP/IPsec server behind a NAT-T device](./2020/ConfigureaL2TPIPsecserverbehindaNAT-Tdevice)
+        * [Mac软件安装时提示已损坏打不开怎么办？Mac如何打开身份不明开发者的程序?（macOS Sierra 10.12及以上）](./2020/Mac软件安装时提示已损坏打不开怎么办-Mac如何打开身份不明开发者的程序)
+        * [Nginx自动列举证书目录](./2020/Nginx自动列举证书目录)
+        * [Nginx+(PHP)静态网页/博客与V2RAY+Ws+Tls共存](./2020/NginxPHP静态网页博客与V2RAYWsTls共存)
+        * [linux_端口转发](./2020/linux_端口转发)
+        * [PortTunnel端口映射工具，端口转发软件Windows](./2020/PortTunnel端口映射工具-端口转发软件Windows)
+        * [Note:内网安全](./2020/Note内网安全)
+        * [This copy of the install macOS High Sierra application is damaged, and can't be used to install...](./2020/macOSHighSierradamagedFix)
+        * [Vmware Workstation 15](./2020/VmwareWorkstation15)
+        * [git设置用户名密码（单用户和多用户）](./2020/git设置用户名密码单用户和多用户)
+        * [V2Ray多用户配置教程](./2020/V2Ray多用户配置教程)
+        * [](./2020/)
+        * [](./2020/)
+
 
 
 
