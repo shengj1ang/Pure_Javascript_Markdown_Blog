@@ -24,7 +24,22 @@
         * [国内IP未备案-免费CloudflareCDN的曲线小方案-Deno-Cloudflare和其它的一些小方案记录](./2022/国内IP未备案免费CloudflareCDN的曲线小方案DenoCloudflare和其它的一些小方案记录)
         * [黑群晖踩坑-蜗牛星际D款](./2022/黑群晖踩坑-蜗牛星际D款)
         * [记录下在R2S上安装lnmp的过程](./2022/记录下在R2S上安装lnmp的过程)
-        * [x](./2022/x)
+        * [Add SubTitle To YouTube Videos](./2022/AddSubTitleToYouTubeVideos)
+        * [Access request details when using Cloudflare workers](./2022/AccessrequestdetailswhenusingCloudflareworkers)
+        * [远程接收短信---USB转GSM模块四频GSMGPRSSIM80OC](./2022/远程接收短信---USB转GSM模块四频GSMGPRSSIM80OC)
+        * [nginx+vless+ws+tls(+cloudflare)2022-04更新](./2022/nginx+vless+ws+tls(+cloudflare)2022-04更新)
+        * [内网网页服务对外的最佳转发方法](./2022/内网网页服务对外的最佳转发方法)
+        * [OpenWrt访问光猫简单稳定](./2022/OpenWrt访问光猫简单稳定)
+        * [通过CloudflareWorkers转换订阅](./2022/通过CloudflareWorkers转换订阅)
+        * [CASIOfx-991CNXBug](./2022/CASIOfx-991CNXBug)
+        * [记录下在Danny的Raspberry上的操作](./2022/记录下在Danny的Raspberry上的操作)
+        * [宝塔面板降级过强制绑定手机账号教程-2022225更新](./2022/宝塔面板降级过强制绑定手机账号教程-2022225更新)
+        * [Force Uninstall Lanschool via cmd script in Windows](./2022/ForceUninstallLanschoolviacmdscriptinWindows)
+    - 2021
+        * [x](./2021/x)
+
+
+
 
 * Bookmarks
 	   * [AndroidApk解包和打包](./bookmarks/AndroidApk解包和打包)
