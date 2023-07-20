@@ -1,6 +1,9 @@
-**UK Driving Test booking links and useful browser scripts**
-
 2023-05-16
+Visibility: Public
+
+
+
+**UK Driving Test booking links and useful browser scripts**
 
 [1. Change your driving test appointment](https://www.gov.uk/change-driving-test)  
 [2. Access your booking - Change booking](https://driverpracticaltest.dvsa.gov.uk/login)  

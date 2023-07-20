@@ -62,10 +62,25 @@
         * [Vmware Workstation 15](./2020/VmwareWorkstation15)
         * [git设置用户名密码（单用户和多用户）](./2020/git设置用户名密码单用户和多用户)
         * [V2Ray多用户配置教程](./2020/V2Ray多用户配置教程)
-        * [](./2020/)
-        * [](./2020/)
-
-
+    - 2019
+        * [MacOS下安装包损坏，解决方法。](./2019/MacOS下安装包损坏-解决方法)
+        * [What to do if the installation package is damaged and cannot be opened in MacOS](./2019/DamagedInstallationPackageInMacOS)
+        * [华硕路由器计划任务定时启动电脑](./2019/华硕路由器计划任务定时启动电脑)
+    - 2018
+        * [Windows Exe 快捷方式 图标显示异常](./2018/WindowsExe快捷方式图标显示异常)
+        * [如何解决Windows10软件商店0x80131500](./2018/如何解决Windows10软件商店0x80131500)
+        * [CentOS 7系统手动安装V2Ray程序](./2018/CentOS7系统手动安装V2Ray程序)
+        * [联想ThinkPad 黑将S5预装win10如何改win7系统](./2018/联想ThinkPad黑将S5预装win10如何改win7系统)
+        * [How to set 'arrange by' for all the folders in the finder](./2018/ArrageByForAllFoldersInFinder)
+        * [禁用华为AI search](./2018/禁用华为AIsearch)
+        * [git 基本命令](./2018/git基本命令)
+        * [git SSH Key教程](./2018/gitSSHKey教程)
+    - 2017
+        * [How to disable the creation of .DS_Store files for Mac users' folders](./2018/DisableDSStoreInMac)
+    - 2016
+        * [Restore/delete system icons on the desktop (Windows Server)](./2016/Restore/deletesystemiconsonthedesktopWindowsServer)
+        * [在桌面上还原/删除系统图标（Windows）](./2016/在桌面上还原删除系统图标Windows)
+        * [快速创建指定大小文件（Windows、Linux）](./2016/快速创建指定大小文件WindowsLinux)        
 
 
 
@@ -74,6 +89,11 @@
       * [openwrt添加服务项](./bookmarks/openwrt添加服务项)
       * [在终端中编译并运行c和c++及oc文件](./bookmarks/在终端中编译并运行c和c++及oc文件)
       * [tools](./bookmarks/tools)
+      * [常用cmd/bat 命令](./bookmarks/常用CmdBat命令)
+      * [宽带账号密码忘记怎么办?](./bookmarks/宽带账号密码忘记怎么办)
+      * [中国古代与现代官职对照表](./bookmarks/中国古代与现代官职对照表)
+      * [禁止更改桌面背景及活动桌面的批处理_最终版](./bookmarks/禁止更改桌面背景及活动桌面的批处理_最终版)
+
 
 * Blog Debug (程序测试)
     * [此Blog的设计标准](./0000/Standard) 

@@ -1,3 +1,7 @@
+2023
+Visibility: Public
+
+
 转自：[http://zhaoxuhui.top/blog/2018/03/24/VideoPreviewerPython.html](http://zhaoxuhui.top/blog/2018/03/24/VideoPreviewerPython.html)
 
 

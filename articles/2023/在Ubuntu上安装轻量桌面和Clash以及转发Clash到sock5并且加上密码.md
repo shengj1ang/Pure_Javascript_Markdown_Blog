@@ -1,6 +1,6 @@
-# 在Ubuntu上安装轻量桌面和Clash以及转发Clash到sock5并且加上密码
-
 2023-07-18
+Visibility: Public
+
 
 Windows版的nps问题还挺严重的，换到新版的也没法解决，而且找不出解决方法，所以还是换回ubuntu好。至于clash只能装桌面版本的系统了，网页版的我之前有试过，记得网页是不能加密码的。
 

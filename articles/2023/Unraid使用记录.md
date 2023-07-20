@@ -1,3 +1,7 @@
+2023
+Visibility: Public
+
+
 Unraid使用记录
 
 原因有二：装Windows Server 2016的机器老是自己挂，而且不能远程把挂掉的系统重启；8G的内存占不满。

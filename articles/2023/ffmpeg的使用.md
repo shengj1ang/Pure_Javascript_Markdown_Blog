@@ -1,6 +1,9 @@
-# ffmpeg的使用
+2023-02-03 UTC
+Visibility: Public
 
-日期：20230203 UTC
+
+
+# ffmpeg的使用
 
 ffmpeg非常棒，啥功能都有，这记下我测试过的功能。
 再ChatGPT的帮助下，可以很轻松的生成命令。

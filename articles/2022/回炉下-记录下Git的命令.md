@@ -1,4 +1,5 @@
-October 19, 2022
+2022-10-09
+Visibility: Public
 
 前言：之前也有记录过，但是用太久GitHub Desktop导致我忘了命令怎么用了，所以在写下。
 

@@ -1,6 +1,8 @@
-**将任意程序制作成linux的服务**
+2023-01-30
+Visibility: Public
 
-日期：20230130
+
+
 ## 制作文件
 先创建服务文件。<span style="color:#dc9656">vim /etc/systemd/system/qqvps.service</span>。输入一下内容
 
