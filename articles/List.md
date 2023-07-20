@@ -76,6 +76,7 @@
       * [tools](./bookmarks/tools)
 
 * Blog Debug (程序测试)
+    * [此Blog的设计标准](./0000/Standard) 
     * [TextContent 文本测试](./0000/Text)
     * [ImageContent 图片测试](./0000/Media)
     * [VideoContent 视频测试](./0000/Video)
