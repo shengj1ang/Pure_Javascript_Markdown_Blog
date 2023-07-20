@@ -21,7 +21,7 @@
         * [微店补货通知大获全胜](./2022/微店补货通知大获全胜)
         * [Blog方案记录](./2022/Blog方案记录)
         * [回炉下-记录下Git的命令](./2022/回炉下-记录下Git的命令)
-        * [国内IP未备案-免费CloudflareCDN的曲线小方案（Deno&Cloudflare和其它的一些小方案记录](./2022/国内IP未备案-免费CloudflareCDN的曲线小方案（Deno&Cloudflare和其它的一些小方案记录)
+        * [国内IP未备案-免费CloudflareCDN的曲线小方案-Deno-Cloudflare和其它的一些小方案记录](./2022/国内IP未备案免费CloudflareCDN的曲线小方案DenoCloudflare和其它的一些小方案记录)
         * [黑群晖踩坑-蜗牛星际D款](./2022/黑群晖踩坑-蜗牛星际D款)
         * [记录下在R2S上安装lnmp的过程](./2022/记录下在R2S上安装lnmp的过程)
         * [x](./2022/x)
